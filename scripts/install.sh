@@ -23,7 +23,7 @@ neofetch \
 gnome-tweaks \
 # nnn - For file management from the terminal.
 nnn \
-# htop - For system monitoring.
+# htop - For system monitoring and looking Hackers (1995) af.
 htop \
 # cmatrix - For fun.
 cmatrix \

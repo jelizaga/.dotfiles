@@ -1,3 +1,6 @@
+# Launches my memex Tiddlywiki.
+# Learn about Vannevar Bush's memex concept: https://en.wikipedia.org/wiki/Memex
 alias memex="tiddlywiki ~/Development/Tiddlywiki/memex --listen port=8080"
-alias shadowspace="tiddlywiki ~/Development/Tiddlywiki/shadowspace --listen port=8081"
+# Logout command.
+# Because CTRL-ALT-DELETE is inconvenient on my keyboard.
 alias logout="gnome-session-quit --logout"
