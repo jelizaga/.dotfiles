@@ -1,8 +1,18 @@
-# .bash_aliases ###############################################################
-ln -s ~/Development/dotfiles/dots/bash_aliases ~/.bash_aliases
-# mpd #########################################################################
+################################################################################
+# setup-links.sh ###############################################################
+################################################################################
+# Creates symbolic links between various program's config locations and their
+# actual configs located in ~/.dotfiles/dots.
+# SYNTAX: ln -s [destination] [point of entry]
+# bash_aliases #################################################################
+ln -s ~/.dotfiles/dots/bash_aliases ~/.bash_aliases
+# mpd ##########################################################################
 mkdir ~/.mpd
-ln -s ~/Development/dotfiles/dots/mpd.conf ~/.mpd/mpd.conf
-# ncmpcpp #####################################################################
+ln -s ~/.dotfiles/dots/mpd.conf ~/.mpd/mpd.conf
+# ncmpcpp ######################################################################
 mkdir ~/.ncmpcpp
-ln -s ~/Development/dotfiles/ncmpcpp.conf ~/.ncmpcpp/config
+ln -s ~/.dotfiles/dots/ncmpcpp.conf ~/.ncmpcpp/config
+# code #########################################################################
+ln -s ~/.dotfiles/dots/code.conf ~/.config/Code/User/settings.json
+# espanso ######################################################################
+ln -s ~/.dotfiles/dots/espanso-base.conf ~/.config/espanso/match/base.yml

@@ -46,7 +46,10 @@ krita \
 # GIMP - Photo editing and hex code-obtaining when I'm deprived of Photoshop.
 gimp \
 # OBS Studio - For recording desktop video and streaming.
-obs-studio
+obs-studio \
+bastet \
+nsnake \
+2048
 
 ###############################################################################
 # PACKAGE MANAGER: flatpak ####################################################
@@ -60,6 +63,12 @@ com.valvesoftware.Steam \
 # STUDYING ####################################################################
 # Anki - For spaced repetition studying.
 net.ankiweb.Anki
+
+###############################################################################
+# PACKAGE MANAGER: snap #######################################################
+###############################################################################
+# Espanso - For text expansion.
+snap install --classic espanso
 
 ###############################################################################
 # curl / wget #################################################################
