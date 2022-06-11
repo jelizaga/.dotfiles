@@ -18,3 +18,5 @@ ln -s ~/.dotfiles/dots/ncmpcpp.conf ~/.ncmpcpp/config
 ln -s ~/.dotfiles/dots/code.conf ~/.config/Code/User/settings.json
 # espanso ######################################################################
 ln -s ~/.dotfiles/dots/espanso-base.yml ~/.config/espanso/match/base.yml
+# git ##########################################################################
+ln -s ~/.dotfiles/dots/git.conf ~/.gitconfig
