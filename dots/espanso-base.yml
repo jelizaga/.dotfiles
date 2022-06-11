@@ -1,0 +1,86 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+
+  # Print the current date
+  - trigger: ":d:"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  - trigger: ":t:"
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M %p"
+
+  - trigger: ":dt:"
+    replace: "{{dateTime}}"
+    vars:
+      - name: dateTime
+        type: date
+        params:
+          format: "%m/%d/%Y %H:%M %p"
+
+  - trigger: ":white star:"
+    replace: "☆"
+
+  - trigger: ":black star:"
+    replace: "★"
+
+  - trigger: ":*:"
+    replace: "•"
+
+  - trigger: ":->:"
+    replace: "→"
+
+  - trigger: ":<-:"
+    replace: "←"
+
+  - trigger: ":-v:"
+    replace: "↓"
+
+  - trigger: ":-^:"
+    replace: "↑"
+
+  - trigger: ":?!:"
+    replace: "‽"
+
+  - trigger: ":c:"
+    replace: "✓"
+
+  - trigger: ":flw0:"
+    replace: "✿"
+
+  - trigger: ":flw1:"
+    replace: "⚘"
+
+  - trigger: ":sci:"
+    replace: "✀"
+  
+  - trigger: ":cad:"
+    replace: "☤"
+
+  - trigger: ":cau:"
+    replace: "🛆"
+
+  - trigger: ":fly:"
+    replace: "🛨"
+
+  - trigger: ":cpu:"
+    replace: "🖳"
+
+  - trigger: ":+:"
+    replace: "✚"
