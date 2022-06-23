@@ -1,15 +1,12 @@
-# espanso match file
+################################################################################
+# espanso-base.yml #############################################################
+################################################################################
+# Expansions in this file apply to all programs/applications (they're 'global').
 
-# For a complete introduction, visit the official docs at: https://espanso.org/docs/
-
-# You can use this file to define the base matches (aka snippets)
-# that will be available in every application when using espanso.
-
-# Matches are substitution rules: when you type the "trigger" string
-# it gets replaced by the "replace" string.
 matches:
 
-  # Print the current date
+  # Date & Time ################################################################
+
   - trigger: ":d:"
     replace: "{{date}}"
     vars:
@@ -33,6 +30,14 @@ matches:
         type: date
         params:
           format: "%m/%d/%Y %H:%M %p"
+
+  - trigger: ":dm:"
+    replace: "{{month}}"
+    vars:
+      - name: month
+        type: date
+        params:
+          format: "%m"
 
   - trigger: ":white star:"
     replace: "☆"

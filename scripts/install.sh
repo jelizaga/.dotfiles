@@ -16,6 +16,9 @@ syncthing \
 pass \
 # tomb - For securing data.
 tomb \
+# PRODUCTIVITY ################################################################
+# taskwarrior
+taskwarrior \
 # QUALITY OF LIFE #############################################################
 # neofetch - For neat-o print-outs of my desktop environment.
 neofetch \
