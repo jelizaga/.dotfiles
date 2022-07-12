@@ -6,6 +6,6 @@ alias storybook="tiddlywiki ~/Wikis/storybook --listen port=8081"
 # Logout command.
 # Because CTRL-ALT-DELETE is inconvenient on my keyboard.
 alias logout="gnome-session-quit --logout"
-# taskwarrior & taskwarrior-tui
+# taskwarrior & timewarrior
 alias t="task"
-alias tt="taskwarrior-tui"
+alias tw="timew"

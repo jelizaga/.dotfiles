@@ -38,15 +38,36 @@ matches:
         type: date
         params:
           format: "%m"
+  
+  # Stars ######################################################################
 
-  - trigger: ":white star:"
+  - trigger: ":wstar:"
     replace: "☆"
 
-  - trigger: ":black star:"
+  - trigger: ":bstar:"
     replace: "★"
+
+  - trigger: ":5stars:"
+    replace: "★★★★★"
+
+  - trigger: ":4stars:"
+    replace: "★★★★☆"
+
+  - trigger: ":3stars:"
+    replace: "★★★☆☆"
+
+  - trigger: ":2stars:"
+    replace: "★★☆☆☆"
+
+  - trigger: ":1stars:"
+    replace: "★☆☆☆☆"
+
+  # Bullets ####################################################################
 
   - trigger: ":*:"
     replace: "•"
+
+  # Arrows #####################################################################
 
   - trigger: ":->:"
     replace: "→"
@@ -59,6 +80,8 @@ matches:
 
   - trigger: ":-^:"
     replace: "↑"
+
+  # Dingbats ###################################################################
 
   - trigger: ":?!:"
     replace: "‽"

@@ -19,6 +19,8 @@ tomb \
 # PRODUCTIVITY ################################################################
 # taskwarrior
 taskwarrior \
+# timewarrior
+timewarrior \
 # QUALITY OF LIFE #############################################################
 # neofetch - For neat-o print-outs of my desktop environment.
 neofetch \
