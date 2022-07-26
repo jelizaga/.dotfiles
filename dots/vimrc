@@ -1,0 +1,44 @@
+" vi Compatibility
+set nocompatible
+" Filetypes & Syntax
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+" Line Numbers
+set number
+" Horizontal Cursor Line
+set cursorline
+" Tabs
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+" Backups
+set nobackup
+" Wrap
+set nowrap
+set textwidth=80
+" Search
+set smartcase
+set showmatch
+set incsearch
+set hlsearch
+" Mode Visibility
+set showmode
+" History
+set history=888
+" Auto-Complete
+set wildmenu
+set wildmode=list:longest,full
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.odt,*.mp4
+" Show Commands
+set showcmd
+" Spellcheck
+if version >= 700
+  set spl=en spell
+  set spell
+endif
+" Enable Mouse
+set mouse=a
+

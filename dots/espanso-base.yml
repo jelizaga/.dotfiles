@@ -67,6 +67,9 @@ matches:
   - trigger: ":*:"
     replace: "•"
 
+  - trigger: ":*>:"
+    replace: "‣"
+
   # Arrows #####################################################################
 
   - trigger: ":->:"
@@ -112,3 +115,15 @@ matches:
 
   - trigger: ":+:"
     replace: "✚"
+
+  - trigger: ":j:"
+    replace: "🅙"
+
+  - trigger: ":e:"
+    replace: "🅔"
+
+  - trigger: ":sig:"
+    replace: "🅙🅔lizaga"
+
+  - trigger: ":smile:"
+    replace: "☻"

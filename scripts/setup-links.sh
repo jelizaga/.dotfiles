@@ -20,3 +20,5 @@ ln -s ~/.dotfiles/dots/code.conf ~/.config/Code/User/settings.json
 ln -s ~/.dotfiles/dots/espanso-base.yml ~/.config/espanso/match/base.yml
 # git ##########################################################################
 ln -s ~/.dotfiles/dots/git.conf ~/.gitconfig
+# vim ##########################################################################
+ln -s ~/.dotfiles/dots/vimrc ~/.vimrc
