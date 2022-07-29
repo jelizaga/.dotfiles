@@ -9,3 +9,5 @@ alias logout="gnome-session-quit --logout"
 # taskwarrior & timewarrior
 alias t="task"
 alias tw="timew"
+# vim
+alias v="vim"

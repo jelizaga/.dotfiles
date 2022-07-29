@@ -127,3 +127,8 @@ matches:
 
   - trigger: ":smile:"
     replace: "☻"
+
+  # Punctuation ###############################################################
+
+  - trigger: ":--:"
+    replace: "—"
