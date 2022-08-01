@@ -1,6 +1,6 @@
 " vi Compatibility
 set nocompatible
-" Filetypes & Syntax
+" File Types & Syntax
 filetype on
 filetype plugin on
 filetype indent on
@@ -17,13 +17,16 @@ set softtabstop=2
 " Backups
 set nobackup
 " Wrap
-set nowrap
+set wrap
+set linebreak
 set textwidth=80
+set colorcolumn=80
 " Search
 set smartcase
 set showmatch
 set incsearch
 set hlsearch
+set nohlsearch
 " Mode Visibility
 set showmode
 " History
@@ -41,4 +44,6 @@ if version >= 700
 endif
 " Enable Mouse
 set mouse=a
-
+set noerrorbells
+set hidden
+set scrolloff=8

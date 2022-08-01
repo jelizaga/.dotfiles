@@ -62,6 +62,26 @@ matches:
   - trigger: ":1stars:"
     replace: "★☆☆☆☆"
 
+  # Dice #######################################################################
+  
+  - trigger: ":1d:"
+    replace: "⚀"
+
+  - trigger: ":2d:"
+    replace: "⚁"
+
+  - trigger: ":3d:"
+    replace: "⚂"
+
+  - trigger: ":4d:"
+    replace: "⚃"
+  
+  - trigger: ":5d:"
+    replace: "⚄"
+
+  - trigger: ":6d:"
+    replace: "⚅"
+
   # Bullets ####################################################################
 
   - trigger: ":*:"
