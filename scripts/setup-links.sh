@@ -22,3 +22,5 @@ ln -s ~/.dotfiles/dots/espanso-base.yml ~/.config/espanso/match/base.yml
 ln -s ~/.dotfiles/dots/git.conf ~/.gitconfig
 # vim ##########################################################################
 ln -s ~/.dotfiles/dots/vimrc ~/.vimrc
+# task #########################################################################
+ln -s ~/.dotfiles/dots/taskrc ~/.taskrc
