@@ -126,6 +126,9 @@ matches:
 
   # Dingbats ###################################################################
 
+  - trigger: ":super:"
+    replace: "❖"
+
   - trigger: ":?!:"
     replace: "‽"
 
@@ -161,9 +164,6 @@ matches:
 
   - trigger: ":e:"
     replace: "🅔"
-
-  - trigger: ":sig:"
-    replace: "🅙🅔lizaga"
 
   - trigger: ":smile:"
     replace: "☻"
