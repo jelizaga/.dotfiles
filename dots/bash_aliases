@@ -1,14 +1,9 @@
 # Launches my memex Tiddlywiki.
 # Learn about Vannevar Bush's memex concept: https://en.wikipedia.org/wiki/Memex
 alias memex="tiddlywiki ~/Wikis/memex --listen port=8080"
-# Launches my storybook Tiddlywiki.
-alias storybook="tiddlywiki ~/Wikis/storybook --listen port=8081"
-# Logout command.
-# Because CTRL-ALT-DELETE is inconvenient on my keyboard.
-alias logout="gnome-session-quit --logout"
 # taskwarrior & timewarrior
 alias taw="task"
-alias tawt="taskwarrior-tui"
+alias twt="taskwarrior-tui"
 alias tiw="timew"
 # vim
 alias v="vim"
