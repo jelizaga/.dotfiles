@@ -1,38 +1,52 @@
 #!/bin/bash
 
+################################################################################
+# links+.sh ####################################################################
+################################################################################
+
 links_created=0
 
 # set_link #####################################################################
 # Checks if symbolic links are already made or the related files are missing,
 # then creates symbolic links if missing.
 # Args:
-#   $1 - Path to link's intended destination.
+#   $1 - Path to link's desired destination.
 #   $2 - Path to link.
 set_link () {
   printf "Checking for $2.\n"
+  # If there's a link existing at $2 (path to link)...
   if [ -L $2 ] ; then
       printf "  Link found.\n"
+    # Check if link arrives at desired destination—if it's good.
     if [ -e $2 ] ; then
-      printf "  👍 Good link.\n"
+      printf "    👍 Good link.\n"
+    # Otherwise,
     else
-      printf "  Broken link.\n"
+      printf "    Broken link.\n"
+      # Delete this broken link,
       rm $2
-      printf "  Link deleted.\n"
+      printf "    Link deleted.\n"
+      # And create a link from $2 to $1.
       ln -s $1 $2
-      printf "  🔗 Created link: $2 → $1\n"
+      printf "    🔗 Created link: $2 → $1\n"
       links_created=$((links_created+1))
     fi
+  # Else if there's a file (not a link) at $2 (path to link)...
   elif [ -e $2 ] ; then
     printf "  File found.\n"
+    # Delete the existing file @ $2 (since it's not a link),
     rm $2
-    printf "  File deleted.\n"
+    printf "    File deleted.\n"
+    # And create a link from $2 to $1.
     ln -s $1 $2
-    printf "  🔗 Created link: $2 → $1\n"
+    printf "    🔗 Created link: $2 → $1\n"
     links_created=$((links_created+1))
+  # Else, we can assume there's no file at $2...
   else
+    # So create a link from $2 to $1.
     printf "  File not found.\n"
     ln -s $1 $2
-    printf "  🔗 Created link: $2 → $1\n"
+    printf "    🔗 Created link: $2 → $1\n"
     links_created=$((links_created+1))
   fi    
 }
