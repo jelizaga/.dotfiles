@@ -125,3 +125,7 @@ neofetch
 export PATH=/home/jelizaga/.fnm:$PATH
 eval "`fnm env`"
 
+
+# fnm
+export PATH=/home/jelizaga/.fnm:$PATH
+eval "`fnm env`"
