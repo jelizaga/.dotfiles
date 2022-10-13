@@ -7,3 +7,5 @@ alias twt="taskwarrior-tui"
 alias tiw="timew"
 # vim
 alias v="vim"
+# kitty
+alias dash="kitty --session /home/jelizaga/.config/kitty/dash"

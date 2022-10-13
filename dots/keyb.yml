@@ -1,0 +1,214 @@
+# Figma ########################################################################
+- name: Figma
+  keybinds:
+  - name: show / hide ui
+    key: ctrl + \
+  - name: pick color
+    key: |
+  - name: quick actions
+    key: ctrl + /
+- name: Figma / tools
+  keybinds:
+  - name: move tool
+    key: v
+  - name: frame tool
+    key: f
+  - name: pen tool
+    key: p
+  - name: pencil tool
+    key: shift + p
+  - name: text tool
+    key: t
+  - name: rectangle tool
+    key: r
+  - name: ellipse tool
+    key: o
+  - name: line tool
+    key: l
+  - name: arrow tool
+    key: shift + l
+  - name: slice tool
+    key: s
+  - name: add comment
+    key: c
+  - name: pick color
+    key: i
+- name: Figma / view
+  keybinds:
+  - name: show / hide layout grid
+    key: shift + g
+- name: Figma / panels
+  keybinds:
+  - name: layers panel
+    key: alt + 1
+  - name: design panel
+    key: alt + 8
+  - name: prototype panel
+    key: alt + 9
+  - name: inspect panel
+    key: alt + 0
+# Firefox ######################################################################
+- name: Firefox / navigation
+  keybinds:
+  - name: back
+    key: alt + ←
+  - name: forward
+    key: alt + →
+  - name: home
+    key: alt + home
+  - name: reload
+    key: ctrl + r
+  - name: stop
+    key: esc
+  - name: focus address bar
+    key: ctrl + l, alt + d
+  - name: focus search bar
+    key: ctrl + k, ctrl + j
+  - name: change search engine
+    key: ctrl + ↓, ctrl + ↑
+- name: Firefox / windows & tabs
+  keybinds:
+  - name: close tab
+    key: ctrl + w
+  - name: close window
+    key: ctrl + shift + w
+  - name: new tab
+    key: ctrl + t
+  - name: new window
+    key: ctrl + n
+  - name: new private window
+    key: ctrl + shift + p
+- name: Firefox / bookmarks
+  keybinds:
+  - name: bookmark page
+    key: ctrl + d
+- name: Firefox / tools
+  keybinds:
+  - name: developer tools
+    key: ctrl + shift + i
+  - name: web console
+    key: ctrl + shift + k
+  - name: inspector
+    key: ctrl + shift + c
+  - name: screenshot
+    key: ctrl + shift + s
+  - name: style editor
+    key: ctrl + f7
+  - name: network
+    key: ctrl + shift + e
+  - name: responsive design view
+    key: ctrl + shift + m
+  - name: page source
+    key: ctrl + u
+  - name: browser console
+    key: ctrl + shift + j
+  - name: page info
+    key: ctrl + i
+# kitty ########################################################################
+- name: kitty
+  keybinds:
+    - name: copy to clipboard
+      key: ctrl + shift + c
+    - name: paste from clipboard
+      key: ctrl + shift + v
+    - name: toggle fullscreen
+      key: ctrl + shift + f11
+    - name: insert unicode character
+      key: ctrl + shift + u 
+    - name: edit kitty.conf
+      key: ctrl + shift + f2
+    - name: reload kitty.conf
+      key: ctrl + shift _+ f5
+    - name: cycle layouts
+      key: ctrl + shift + l
+- name: kitty / tabs
+  keybinds:
+    - name: new tab
+      key: ctrl + shift + t
+    - name: close tab
+      key: ctrl + shift + q
+    - name: next tab
+      key: ctrl + shift + →
+    - name: previous tab
+      key: ctrl + shift + ←
+    - name: move tab forward
+      key: ctrl + shift + .
+    - name: move tab backward
+      key: ctrl + shift + ,
+    - name: set tab title
+      key: ctrl + shift + alt + t
+- name: kitty / windows
+  keybinds:
+    - name: new window
+      key: ctrl + shift + enter
+    - name: new OS window
+      key: ctrl + shift + n
+    - name: close window
+      key: ctrl + shift + w
+    - name: next window
+      key: ctrl + shift + ]
+    - name: previous window
+      key: ctrl + shift + [
+    - name: move window forward
+      key: ctrl + shift + f
+    - name: move window backward
+      key: ctrl + shift + b
+- name: kitty / font
+  keybinds:
+    - name: increase font size
+      key: ctrl + shift + =
+    - name: decrease font size
+      key: ctrl + shift + -
+    - name: restore font size
+      key: ctrl + shift + backspace
+# Pop!_OS ######################################################################
+- name: Pop!_OS
+  keybinds:
+    - name: switch focus between windows
+      key: super + h/j/k/l
+    - name: lock screen
+      key: super + esc
+    - name: navigate workspaces
+      key: super + ctrl + j/k
+    - name: move focused window between workspaces & displays
+      key: super + shift + h/j/k/l
+    - name: snap window to left/right of display
+      key: super + ctrl + h/l
+    - name: move window
+      key: super + left click + drag
+    - name: cycle window orientation
+      key: super + o
+    - name: float / unfloat window
+      key: super + g
+    - name: maximize / un-maximize window
+      key: super + m
+    - name: close window
+      key: super + q
+- name: Pop!_OS / window adjustment mode
+  keybinds:
+    - name: enter window adjustment mode
+      key: super + enter
+    - name: apply & exit window adjustment mode
+      key: return
+    - name: cancel & exit window adjustment mode
+      key: esc
+    - name: resize selected window (in window adjustment mode)
+      key: shift + h/j/k/l
+    - name: swap windows (in window adjustment mode)
+      key: ctrl + h/j/k/l
+    - name: move window (in window adjustment mode)
+      key: h/j/k/l
+- name: Pop!_OS / stacking
+  keybinds:
+    - name: toggle stacking
+      key: super + s
+- name: Pop!_OS / apps
+  keybinds:
+    - name: switch apps
+      key: super + tab
+    - name: switch apps (reverse)
+      key: super + tab + shift
+    - name: switch windows of focused app
+      key: super + `
+    - name: switch windows of focused app (reverse)
+      key: super + ` + shift
