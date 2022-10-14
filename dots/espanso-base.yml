@@ -128,6 +128,15 @@ matches:
 
   - trigger: ":super:"
     replace: "❖"
+  
+  - trigger: ":bdiamond:"
+    replace: "◆"
+
+  - trigger: ":<|:"
+    replace: "⯇"
+
+  - trigger: ":|>:"
+    replace: "⯈"
 
   - trigger: ":?!:"
     replace: "‽"
