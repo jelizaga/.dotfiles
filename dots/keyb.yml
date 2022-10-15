@@ -212,3 +212,18 @@
       key: super + `
     - name: switch windows of focused app (reverse)
       key: super + ` + shift
+# Calibre ######################################################################
+- name: Calibre
+  keybinds:
+    - name: edit the metadata of selected field in book list
+      key: f2
+    - name: add books
+      key: a
+    - name: edit metadata of selected books
+      key: e
+    - name: edit book
+      key: t
+    - name: get books
+      key: g
+    - name: focus search bar
+      key: /
