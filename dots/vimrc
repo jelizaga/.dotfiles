@@ -47,3 +47,18 @@ set mouse=a
 set noerrorbells
 set hidden
 set scrolloff=8
+
+" Plugins ----------------------------------------------------------------------
+set nocompatible
+filetype plugin on
+syntax on
+" Install vim-plug:
+let data_dir = has('nvim?') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs http://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" Use vim-plug to install plugins:
+call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+Plug 'vimwiki/vimwiki'
+call plug#end()
