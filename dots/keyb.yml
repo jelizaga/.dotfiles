@@ -227,3 +227,36 @@
       key: g
     - name: focus search bar
       key: /
+# Anki #########################################################################
+- name: Anki
+  keybinds:
+    - name: select deck
+      key: /
+    - name: browse
+      key: b
+    - name: sync
+      key: y
+    - name: decks
+      key: d
+    - name: add
+      key: a
+- name: Anki / studying
+  keybinds:
+    - name: rate card difficulty
+      key: 1/2/3/4
+    - name: edit current card
+      key: e
+    - name: flip card
+      key: space
+    - name: delete note
+      key: ctrl + del
+- name: Anki / editor
+  keybinds:
+    - name: cloze delete selected content
+      key: ctrl + shift + c
+    - name: add card to deck
+      key: ctrl + return
+- name: Anki / browser
+  keybinds:
+    - name: delete
+      key: ctrl + del
