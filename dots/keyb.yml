@@ -256,7 +256,16 @@
       key: ctrl + shift + c
     - name: add card to deck
       key: ctrl + return
+    - name: ordered list
+      key: ctrl + .
+    - name: unordered list
+      key: ctrl + ,
 - name: Anki / browser
   keybinds:
     - name: delete
       key: ctrl + del
+# Vim ##########################################################################
+- name: Vim
+  keybinds:
+    - name: jump to matching parenthesis/bracket/quote
+      key: %
