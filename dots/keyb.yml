@@ -267,8 +267,6 @@
 # Vim ##########################################################################
 - name: Vim
   keybinds:
-    - name: jump to matching parenthesis/bracket/quote
-      key: %
     - name: undo last operation
       key: u
     - name: redo last undo
@@ -291,18 +289,6 @@
       key: (
     - name: jump to next sentence
       key: )
-    - name: jump to previous paragraph
-      key: {
-    - name: jump to next paragraph
-      key: }
-    - name: jump to previous section
-      key: [[
-    - name: jump to next section
-      key: ]]
-    - name: jump to end of previous section
-      key: []
-    - name: jump to end of next section
-      key: ][
 - name: Vim / insert
   keybinds:
     - name: insert text after cursor
@@ -333,9 +319,3 @@
       key: dgg
     - name: delete to end of sentence
       key: d)
-- name: Vim / indentation
-  keybinds:
-    - name: indent line one tab to the right
-      key: >>
-    - name: indent line one tab to the left
-      key: <<
