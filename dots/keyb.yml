@@ -1,109 +1,109 @@
 # Figma ########################################################################
 - name: Figma
   keybinds:
-  - name: show / hide ui
-    key: ctrl + \
-  - name: pick color
-    key: |
-  - name: quick actions
-    key: ctrl + /
+    - name: show / hide ui
+      key: ctrl + \
+    - name: pick color
+      key: |
+    - name: quick actions
+      key: ctrl + /
 - name: Figma / tools
   keybinds:
-  - name: move tool
-    key: v
-  - name: frame tool
-    key: f
-  - name: pen tool
-    key: p
-  - name: pencil tool
-    key: shift + p
-  - name: text tool
-    key: t
-  - name: rectangle tool
-    key: r
-  - name: ellipse tool
-    key: o
-  - name: line tool
-    key: l
-  - name: arrow tool
-    key: shift + l
-  - name: slice tool
-    key: s
-  - name: add comment
-    key: c
-  - name: pick color
-    key: i
+    - name: move tool
+      key: v
+    - name: frame tool
+      key: f
+    - name: pen tool
+      key: p
+    - name: pencil tool
+      key: shift + p
+    - name: text tool
+      key: t
+    - name: rectangle tool
+      key: r
+    - name: ellipse tool
+      key: o
+    - name: line tool
+      key: l
+    - name: arrow tool
+      key: shift + l
+    - name: slice tool
+      key: s
+    - name: add comment
+      key: c
+    - name: pick color
+      key: i
 - name: Figma / view
   keybinds:
-  - name: show / hide layout grid
-    key: shift + g
+    - name: show / hide layout grid
+      key: shift + g
 - name: Figma / panels
   keybinds:
-  - name: layers panel
-    key: alt + 1
-  - name: design panel
-    key: alt + 8
-  - name: prototype panel
-    key: alt + 9
-  - name: inspect panel
-    key: alt + 0
+    - name: layers panel
+      key: alt + 1
+    - name: design panel
+      key: alt + 8
+    - name: prototype panel
+      key: alt + 9
+    - name: inspect panel
+      key: alt + 0
 # Firefox ######################################################################
 - name: Firefox / navigation
   keybinds:
-  - name: back
-    key: alt + ←
-  - name: forward
-    key: alt + →
-  - name: home
-    key: alt + home
-  - name: reload
-    key: ctrl + r
-  - name: stop
-    key: esc
-  - name: focus address bar
-    key: ctrl + l, alt + d
-  - name: focus search bar
-    key: ctrl + k, ctrl + j
-  - name: change search engine
-    key: ctrl + ↓, ctrl + ↑
+    - name: back
+      key: alt + ←
+    - name: forward
+      key: alt + →
+    - name: home
+      key: alt + home
+    - name: reload
+      key: ctrl + r
+    - name: stop
+      key: esc
+    - name: focus address bar
+      key: ctrl + l, alt + d
+    - name: focus search bar
+      key: ctrl + k, ctrl + j
+    - name: change search engine
+      key: ctrl + ↓, ctrl + ↑
 - name: Firefox / windows & tabs
   keybinds:
-  - name: close tab
-    key: ctrl + w
-  - name: close window
-    key: ctrl + shift + w
-  - name: new tab
-    key: ctrl + t
-  - name: new window
-    key: ctrl + n
-  - name: new private window
-    key: ctrl + shift + p
+    - name: close tab
+      key: ctrl + w
+    - name: close window
+      key: ctrl + shift + w
+    - name: new tab
+      key: ctrl + t
+    - name: new window
+      key: ctrl + n
+    - name: new private window
+      key: ctrl + shift + p
 - name: Firefox / bookmarks
   keybinds:
-  - name: bookmark page
-    key: ctrl + d
+    - name: bookmark page
+      key: ctrl + d
 - name: Firefox / tools
   keybinds:
-  - name: developer tools
-    key: ctrl + shift + i
-  - name: web console
-    key: ctrl + shift + k
-  - name: inspector
-    key: ctrl + shift + c
-  - name: screenshot
-    key: ctrl + shift + s
-  - name: style editor
-    key: ctrl + f7
-  - name: network
-    key: ctrl + shift + e
-  - name: responsive design view
-    key: ctrl + shift + m
-  - name: page source
-    key: ctrl + u
-  - name: browser console
-    key: ctrl + shift + j
-  - name: page info
-    key: ctrl + i
+    - name: developer tools
+      key: ctrl + shift + i
+    - name: web console
+      key: ctrl + shift + k
+    - name: inspector
+      key: ctrl + shift + c
+    - name: screenshot
+      key: ctrl + shift + s
+    - name: style editor
+      key: ctrl + f7
+    - name: network
+      key: ctrl + shift + e
+    - name: responsive design view
+      key: ctrl + shift + m
+    - name: page source
+      key: ctrl + u
+    - name: browser console
+      key: ctrl + shift + j
+    - name: page info
+      key: ctrl + i
 # kitty ########################################################################
 - name: kitty
   keybinds:
@@ -269,3 +269,73 @@
   keybinds:
     - name: jump to matching parenthesis/bracket/quote
       key: %
+    - name: undo last operation
+      key: u
+    - name: redo last undo
+      key: ctrl + r
+- name: Vim / modes
+  keybinds:
+    - name: command mode
+      key: esc
+- name: Vim / navigation
+  keybinds:
+    - name: move forward one word
+      key: w
+    - name: move backward one word
+      key: b
+    - name: move to beginning of file
+      key: gg
+    - name: move to end of file
+      key: G
+    - name: jump to previous sentence
+      key: (
+    - name: jump to next sentence
+      key: )
+    - name: jump to previous paragraph
+      key: {
+    - name: jump to next paragraph
+      key: }
+    - name: jump to previous section
+      key: [[
+    - name: jump to next section
+      key: ]]
+    - name: jump to end of previous section
+      key: []
+    - name: jump to end of next section
+      key: ][
+- name: Vim / insert
+  keybinds:
+    - name: insert text after cursor
+      key: a
+    - name: insert text at end of line
+      key: A
+    - name: insert text before cursor
+      key: l
+    - name: insert line beneath cursor
+      key: o
+    - name: insert line above cursor
+      key: O
+- name: Vim / delete
+  keybinds:
+    - name: delete character at cursor
+      key: x
+    - name: delete word
+      key: dw
+    - name: delete to end of line
+      key: d$
+    - name: delete to beginning of line
+      key: d0
+    - name: delete line
+      key: dd
+    - name: delete to end of file
+      key: dG
+    - name: delete to beginning of file
+      key: dgg
+    - name: delete to end of sentence
+      key: d)
+- name: Vim / indentation
+  keybinds:
+    - name: indent line one tab to the right
+      key: >>
+    - name: indent line one tab to the left
+      key: <<
