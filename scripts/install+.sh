@@ -12,9 +12,63 @@ print_title () {
   printf " mm#mm  #   #  \"mmm\"    \"mm  \"mm\"#    \"mm    \"mm    #\n"
 }
 
+print_packages_installed () {
+  if [ $packages_installed -gt 1 ]; then
+    printf "🏡🚛 $packages_installed packages installed.\n"
+  elif [ $packages_installed -eq 1 ]; then
+    printf "🏡🚚 One package installed.\n"
+  else
+    printf "🏡🛻 No packages installed.\n"
+  fi
+}
+
 menu_package_categories () {
   printf "\nChoose a category:\n"
-  CATEGORY=$(gum choose {Development,Security,Utilities,Learning,Creativity,Media})
+  category=$(gum choose {"🖥️ Development","🔑 Security","⚙️ Utilities","📚 Learning","🎨 Creativity","🖼️ Media","🗨️ Communication"})
+  if [ "$category" == "🖥️ Development" ]; then
+    menu_development
+  elif [ "$category" == "🔑 Security" ]; then
+    menu_security
+  elif [ "$category" == "⚙️ Utilities" ]; then
+    menu_utilities
+  elif [ "$category" == "📚 Learning" ]; then
+    menu_learning
+  elif [ "$category" == "🎨 Creativity" ]; then
+    menu_creativity
+  elif [ "$category" == "🖼️ Media" ]; then
+    menu_media
+  elif [ "$category" == "🗨️ Communication" ]; then
+    menu_communication
+  fi
+}
+
+menu_development () {
+  printf "\n🖥️ Development\n"
+
+}
+
+menu_security () {
+  printf "\n🔑 Security\n"
+}
+
+menu_utilities () {
+  printf "\n⚙️ Utilities\n"
+}
+
+menu_learning () {
+  printf "\n📚 Learning\n"
+}
+
+menu_creativity () {
+ printf "\n🎨 Creativity\n"
+}
+
+menu_media () {
+ printf "\n🖼️ Media\n"
+}
+
+menu_communication () {
+  printf "\n🗨️ Communication\n"
 }
 
 # verify_package_installed #####################################################
@@ -67,6 +121,7 @@ install_package () {
     fi
     if [ $? == 0 ]; then
       printf "🎁 $1 installed.\n"
+      packages_installed=$(($packages_installed + 1))
     else
       printf "❗ $1 could not be installed.\n"
     fi
@@ -91,6 +146,7 @@ install_everything () {
   install_package mpd apt
   install_package mpc apt
   install_package ncmpcpp apt
+  install_package cmatrix apt
 
   install_package org.gnome.gitlab.somas.Apostrophe flatpak
   install_package us.zoom.Zoom flatpak
@@ -105,6 +161,7 @@ install_everything () {
 print_title
 menu_package_categories
 install_everything
+print_packages_installed
 
 # Development
 #install_package git apt
