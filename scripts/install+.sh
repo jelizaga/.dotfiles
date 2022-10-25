@@ -12,6 +12,18 @@ print_title () {
   printf " mm#mm  #   #  \"mmm\"    \"mm  \"mm\"#    \"mm    \"mm    #\n"
 }
 
+print_os () {
+  printf "TODO: Print OS details."
+}
+
+verify_gum_installed () {
+  dpkg -s gum >& /dev/null
+  if [ $? == 1 ]; then
+    printf "❌ gum is not installed.\n"
+
+  fi
+}
+
 print_packages_installed () {
   if [ $packages_installed -gt 1 ]; then
     printf "🏡🚛 $packages_installed packages installed.\n"
@@ -44,7 +56,7 @@ menu_package_categories () {
 
 menu_development () {
   printf "\n🖥️ Development\n"
-
+  
 }
 
 menu_security () {
@@ -159,49 +171,7 @@ install_everything () {
 ################################################################################
 
 print_title
+verify_gum_installed
 menu_package_categories
 install_everything
 print_packages_installed
-
-# Development
-#install_package git apt
-#install_package vim apt
-#install_package code apt
-
-# Development / Web
-#install_package create-react-app npm
-
-#install_package net.ankiweb.Anki flatpak
-#install_package tiddlywiki npm
-
-# System Monitoring
-#install_package htop apt
-
-# File
-#install_package neofetch apt
-
-# GNOME
-#install_package gnome-tweaks apt
-
-# Media / Audio
-#install_package com.spotify.Client flatpak
-#install_package ncmpcpp apt
-#install_package mpd apt
-#install_package mpc apt
-
-# Media / Video
-#install_package vlc apt
-#install_package mpd apt
-#install_package youtube-dl apt
-
-# Media / Gaming
-#install_package com.valvesoftware.Steam flatpak
-
-# Creativity / Graphics
-#install_package blender apt
-#install_package krita apt
-#install_package gimp apt
-#install_package obs-studio apt
-
-# Entertainment / TUI
-#install_package cmatrix apt
