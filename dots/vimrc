@@ -61,6 +61,7 @@ endif
 " Use vim-plug to install plugins:
 call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
+Plug 'fladson/vim-kitty'
 call plug#end()
 
 " Vimwiki ----------------------------------------------------------------------
