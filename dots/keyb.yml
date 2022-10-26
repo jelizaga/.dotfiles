@@ -319,3 +319,35 @@
       key: dgg
     - name: delete to end of sentence
       key: d)
+- name: Vim / Vimwiki
+  keybinds:
+    - name: open default wiki index file
+      key: ,ww
+    - name: select & open wiki index file
+      key: ,ws
+    - name: follow / create wiki link
+      key: enter
+    - name: go back to parent / previous wiki link
+      key: backspace
+    - name: find next wiki link
+      key: tab
+    - name: find previous wiki link
+      key: shift + tab
+    - name: delete wiki page you are in
+      key: ,wd
+    - name: rename wiki page you are in
+      key: ,wr
+    - name: add header level
+      key: =
+    - name: remove header level
+      key: -
+    - name: go to previous header in buffer
+      key: [[
+    - name: go to next header in buffer
+      key: ]]
+    - name: go one level header up
+      key: ]u [u
+    - name: create and / or decorate links
+      key: +
+    - name: toggle checkbox of list item
+      key: ctrl + space
