@@ -62,3 +62,9 @@ endif
 call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
 call plug#end()
+
+" Vimwiki ----------------------------------------------------------------------
+let g:vimwiki_list = [{'path': '~/Wikis/hci.fyi', 'path_html': '~/Wikis/hci.fyi_html', 'syntax': 'markdown', 'ext':'!.md'}]
+
+" Mapping ----------------------------------------------------------------------
+let mapleader = ","
