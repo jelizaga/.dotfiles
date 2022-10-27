@@ -62,6 +62,7 @@ endif
 call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'fladson/vim-kitty'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " Vimwiki ----------------------------------------------------------------------
