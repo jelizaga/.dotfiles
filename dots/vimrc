@@ -1,3 +1,8 @@
+" ------------------------------------------------------------------------------
+" .vimrc -----------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+"  Config file for Vim.
+
 " vi Compatibility
 set nocompatible
 " File Types & Syntax
@@ -48,6 +53,10 @@ set noerrorbells
 set hidden
 set scrolloff=8
 
+" Mapping ----------------------------------------------------------------------
+" Leader key is `,` instead of the default `\`:
+let mapleader = ","
+
 " Plugins ----------------------------------------------------------------------
 set nocompatible
 filetype plugin on
@@ -66,7 +75,8 @@ Plug 'preservim/nerdtree'
 call plug#end()
 
 " Vimwiki ----------------------------------------------------------------------
-let g:vimwiki_list = [{'path': '~/Wikis/sound', 'path_html': '~/Wikis/sound_html', 'syntax': 'markdown', 'ext': '!.md'}, {'path': '~/Wikis/hci.fyi', 'path_html': '~/Wikis/hci.fyi_html', 'syntax': 'markdown', 'ext':'!.md'}]
-
-" Mapping ----------------------------------------------------------------------
-let mapleader = ","
+" List valid Vimwikis to handle/create:
+let g:vimwiki_list = [{'path': '~/Wikis/sound', 'path_html': '~/Wikis/sound_html', 'syntax': 'markdown', 'ext': '.md'}]
+" Ensure Vimwiki only sets the file type of Markdown files within a Vimwiki
+" directory:
+let g:vimwiki_global_ext = 0
