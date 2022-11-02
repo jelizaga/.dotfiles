@@ -56,6 +56,9 @@ set scrolloff=8
 " Mapping ----------------------------------------------------------------------
 " Leader key is `,` instead of the default `\`:
 let mapleader = ","
+nnoremap <F12> "=strftime("%D %T")<CR>P
+nnoremap <F11> "=strftime("%T")<CR>P
+nnoremap <F10> "=strftime("%D")<CR>P
 
 " Plugins ----------------------------------------------------------------------
 set nocompatible
