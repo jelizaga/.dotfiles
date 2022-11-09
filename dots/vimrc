@@ -11,7 +11,8 @@ filetype plugin on
 filetype indent on
 syntax on
 " Line Numbers
-set number
+set number relativenumber
+set nu rnu
 " Horizontal Cursor Line
 set cursorline
 " Tabs
@@ -74,6 +75,7 @@ endif
 call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'fladson/vim-kitty'
+Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'ron89/thesaurus_query.vim'
 call plug#end()
