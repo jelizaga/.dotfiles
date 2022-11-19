@@ -73,6 +73,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 " Use vim-plug to install plugins:
 call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+Plug 'chrisbra/unicode.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'fladson/vim-kitty'
 Plug 'vim-airline/vim-airline'
