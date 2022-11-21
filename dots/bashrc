@@ -134,5 +134,5 @@ export EDITOR=/usr/bin/vim
 
 cbonsai -p --base=2
 printf "\n"
-fortune ~/.quotes/quotes
+fortune ~/.dotfiles/dots/quotes
 printf "\n"
