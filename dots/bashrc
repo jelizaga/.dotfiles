@@ -119,8 +119,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-neofetch
-
 # $PATH ########################################################################
 # fnm
 export PATH=/home/jelizaga/.fnm:$PATH
@@ -131,3 +129,10 @@ export PATH=/home/jelizaga/.bin:$PATH
 export PATH=/home/jelizaga/.local/bin:$PATH
 
 export EDITOR=/usr/bin/vim
+
+################################################################################
+
+cbonsai -p --base=2
+printf "\n"
+fortune ~/.quotes/quotes
+printf "\n"
