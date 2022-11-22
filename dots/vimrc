@@ -5,81 +5,99 @@
 
 " vi Compatibility
 set nocompatible
+
 " File Types & Syntax
+filetype indent on
 filetype on
 filetype plugin on
-filetype indent on
 syntax on
+
 " Line Numbers
-set number relativenumber
 set nu rnu
+set number relativenumber
+
 " Horizontal Cursor Line
 set cursorline
+
 " Tabs
-set tabstop=2
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
+
 " Backups
 set nobackup
+
 " Wrap
-set wrap
+set colorcolumn=80
 set linebreak
 set textwidth=80
-set colorcolumn=80
+set wrap
+
 " Search
-set smartcase
-set showmatch
-set incsearch
 set hlsearch
+set incsearch
 set nohlsearch
+set showmatch
+set smartcase
+
 " Mode Visibility
 set showmode
+
 " History
 set history=888
+
 " Auto-Complete
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.odt,*.mp4
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.odt,*.mp4
+
 " Show Commands
 set showcmd
+
 " Spellcheck
 if version >= 700
   set spl=en spell
   set spell
 endif
+
 " Enable Mouse
+set hidden
 set mouse=a
 set noerrorbells
-set hidden
 set scrolloff=8
 
 " Mapping ----------------------------------------------------------------------
+
 " Leader key is `,` instead of the default `\`:
 let mapleader = ","
-nnoremap <F12> "=strftime("%D %T")<CR>P
-nnoremap <F11> "=strftime("%T")<CR>P
 nnoremap <F10> "=strftime("%D")<CR>P
+nnoremap <F11> "=strftime("%T")<CR>P
+nnoremap <F12> "=strftime("%D %T")<CR>P
 
 " Plugins ----------------------------------------------------------------------
-set nocompatible
-filetype plugin on
-syntax on
+
 " Install vim-plug:
 let data_dir = has('nvim?') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs http://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 " Use vim-plug to install plugins:
 call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'chrisbra/unicode.vim'
-Plug 'vimwiki/vimwiki'
+Plug 'christoomey/vim-sort-motion'
+Plug 'christoomey/vim-titlecase'
 Plug 'fladson/vim-kitty'
-Plug 'vim-airline/vim-airline'
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'preservim/nerdtree'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Vimwiki ----------------------------------------------------------------------
