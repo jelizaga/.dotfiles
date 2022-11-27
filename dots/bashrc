@@ -132,7 +132,7 @@ export EDITOR=/usr/bin/vim
 
 ################################################################################
 
-cbonsai -p --base=2
+cbonsai -p --base=2 
 printf "\n"
 fortune ~/.dotfiles/dots/quotes
 printf "\n"
