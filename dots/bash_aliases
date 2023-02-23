@@ -7,6 +7,8 @@ alias twt="taskwarrior-tui"
 alias tiw="timew"
 # vim
 alias v="vim"
+# buku
+alias b="buku"
 # date
 alias now="date +'%D %T'"
 alias nowd="date +'%D'"

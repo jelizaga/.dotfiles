@@ -1,6 +1,7 @@
 #!/bin/bash
 
 packages_installed=0
+os=$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
 
 # print_title ##################################################################
 # Prints install+'s title.
@@ -10,18 +11,34 @@ print_title () {
   printf "   #    #\"  #  #   \"    #    \"   #    #      #      #\n"
   printf "   #    #   #   \"\"\"m    #    m\"\"\"#    #      #   \"\"\"#\"\"\"\n"
   printf " mm#mm  #   #  \"mmm\"    \"mm  \"mm\"#    \"mm    \"mm    #\n"
+  printf "\n"
 }
 
 print_os () {
-  printf "TODO: Print OS details."
+  printf "You're using $os.\n"
 }
 
 verify_gum_installed () {
   dpkg -s gum >& /dev/null
   if [ $? == 1 ]; then
     printf "❌ gum is not installed.\n"
-
+    install_gum
+  else
+    return 0
   fi
+}
+
+install_gum () {
+  if [ "$os" = "Pop!_OS" ] || [ "$os" = "Ubuntu" ] || [ "$os" = "Debian" ]; then
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+    sudo apt update && sudo apt install gum
+  fi
+}
+
+install_d2 () {
+  curl -fsSL https://d2lang.com/install.sh | sh -s --
 }
 
 print_packages_installed () {
@@ -171,7 +188,5 @@ install_everything () {
 ################################################################################
 
 print_title
+print_os
 verify_gum_installed
-menu_package_categories
-install_everything
-print_packages_installed
