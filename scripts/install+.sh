@@ -15,7 +15,7 @@ print_title () {
 }
 
 print_os () {
-  printf "OS: $os\n"
+  printf "$(gum style --bold 'OS:') $os\n"
 }
 
 # gum_is_installed
@@ -56,10 +56,8 @@ os_is_rhel_based () {
 # Checks if gum is installed; installs gum if it's not installed.
 gum_check () {
   if ! gum_is_installed; then
-    printf "Gum is not installed."
+    printf "❌ Gum is not installed."
     install_gum
-  else
-    printf "Gum is installed."
   fi
 }
 
@@ -95,7 +93,14 @@ print_packages_installed () {
 }
 
 menu_package_categories () {
-  jq ".categories" packages.json
+  printf "\n"
+  printf "Press $(gum style --bold --foreground '#E60000' 'x') to select \
+software categories;\n"
+  printf "press $(gum style --bold --foreground '#E60000' \
+'enter') to confirm your selection:\n"
+  PACKAGE_CATEGORIES=$(jq -r '.categories | map(.category_name)[]' \
+    packages.json | gum choose --no-limit)
+  echo "$PACKAGE_CATEGORIES"
 }
 
 # verify_package_installed #####################################################

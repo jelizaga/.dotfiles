@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "category_name": "Utilities",
+      "category_name": "⚙️ Utilities",
       "packages": [
         {
           "name": "Syncthing",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "category_name": "Software Engineering",
+      "category_name": "💻 Software Engineering",
       "packages": [
         {
           "name": "Git",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "category_name": "Security",
+      "category_name": "🔒 Security",
       "packages": [
         {
           "name": "pass",
@@ -58,10 +58,10 @@
       ]
     },
     {
-      "category_name": "Media"
+      "category_name": "✨ Media"
     },
     {
-      "category_name": "Communication",
+      "category_name": "💬 Communication",
       "packages": [
         {
           "name": "Zoom",
@@ -73,10 +73,10 @@
       ]
     },
     {
-      "category_name": "Creativity"
+      "category_name": "🎨 Creativity"
     },
     {
-      "category_name": "Knowledge Work",
+      "category_name": "📚 Knowledge Work",
       "packages": [
         {
           "name": "Anki",
