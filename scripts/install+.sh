@@ -15,21 +15,60 @@ print_title () {
 }
 
 print_os () {
-  printf "You're using $os.\n"
+  printf "OS: $os\n"
 }
 
-verify_gum_installed () {
+# gum_is_installed
+#  `true` - if gum is installed.
+#  `false` - if gum has yet to be installed.
+gum_is_installed () {
   dpkg -s gum >& /dev/null
   if [ $? == 1 ]; then
-    printf "❌ gum is not installed.\n"
-    install_gum
+    false
   else
-    return 0
+    true
   fi
 }
 
+# os_is_debian_based
+#   `true` - if OS is Debian-based.
+#   `false` - if OS is not Debian-based.
+os_is_debian_based () {
+  if [ "$os" = "Pop!_OS" ] || [ "$os" = "Ubuntu" ] || [ "$os" = "Debian"]; then
+    true
+  else
+    false
+  fi
+}
+
+# os_is_rhel_based
+#   `true` - if OS is RHEL-based.
+#   `false` - if OS is not RHEL-based.
+os_is_rhel_based () {
+  if [ "$os" = "Fedora" ]; then
+    true
+  else
+    false
+  fi
+}
+
+# gum_check
+# Checks if gum is installed; installs gum if it's not installed.
+gum_check () {
+  if ! gum_is_installed; then
+    printf "Gum is not installed."
+    install_gum
+  else
+    printf "Gum is installed."
+  fi
+}
+
+# Package Installation  ########################################################
+
+# install_gum
+# Installs gum.
 install_gum () {
-  if [ "$os" = "Pop!_OS" ] || [ "$os" = "Ubuntu" ] || [ "$os" = "Debian" ]; then
+  if os_is_debian_based; then
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
     echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
@@ -37,9 +76,13 @@ install_gum () {
   fi
 }
 
+# install_d2
+# Installs d2.
 install_d2 () {
   curl -fsSL https://d2lang.com/install.sh | sh -s --
 }
+
+# Package Selection ############################################################
 
 print_packages_installed () {
   if [ $packages_installed -gt 1 ]; then
@@ -52,52 +95,7 @@ print_packages_installed () {
 }
 
 menu_package_categories () {
-  printf "\nChoose a category:\n"
-  category=$(gum choose {"🖥️ Development","🔑 Security","⚙️ Utilities","📚 Learning","🎨 Creativity","🖼️ Media","🗨️ Communication"})
-  if [ "$category" == "🖥️ Development" ]; then
-    menu_development
-  elif [ "$category" == "🔑 Security" ]; then
-    menu_security
-  elif [ "$category" == "⚙️ Utilities" ]; then
-    menu_utilities
-  elif [ "$category" == "📚 Learning" ]; then
-    menu_learning
-  elif [ "$category" == "🎨 Creativity" ]; then
-    menu_creativity
-  elif [ "$category" == "🖼️ Media" ]; then
-    menu_media
-  elif [ "$category" == "🗨️ Communication" ]; then
-    menu_communication
-  fi
-}
-
-menu_development () {
-  printf "\n🖥️ Development\n"
-  
-}
-
-menu_security () {
-  printf "\n🔑 Security\n"
-}
-
-menu_utilities () {
-  printf "\n⚙️ Utilities\n"
-}
-
-menu_learning () {
-  printf "\n📚 Learning\n"
-}
-
-menu_creativity () {
- printf "\n🎨 Creativity\n"
-}
-
-menu_media () {
- printf "\n🖼️ Media\n"
-}
-
-menu_communication () {
-  printf "\n🗨️ Communication\n"
+  jq ".categories" packages.json
 }
 
 # verify_package_installed #####################################################
@@ -157,36 +155,7 @@ install_package () {
   fi
 }
 
-# install_everything ###########################################################
-install_everything () {
-  install_package git apt
-  install_package vim apt
-  install_package code apt
-  install_package pass apt
-  install_package tomb apt
-  install_package syncthing apt
-  install_package taskwarrior apt
-  install_package timewarrior apt
-  install_package htop apt
-  install_package vlc apt
-  install_package gnome-tweaks apt
-  install_package gimp apt
-  install_package youtube-dl apt
-  install_package mpd apt
-  install_package mpc apt
-  install_package ncmpcpp apt
-  install_package cmatrix apt
-
-  install_package org.gnome.gitlab.somas.Apostrophe flatpak
-  install_package us.zoom.Zoom flatpak
-  install_package com.valvesoftware.Steam flatpak
-  install_package net.ankiweb.Anki flatpak
-
-  install_package lsd snap
-}
-
-################################################################################
-
 print_title
 print_os
-verify_gum_installed
+gum_check
+menu_package_categories
