@@ -80,6 +80,14 @@ install_d2 () {
   curl -fsSL https://d2lang.com/install.sh | sh -s --
 }
 
+install_everything () {
+  # get a category
+  # for every package in the category
+  # if there's apt, install using apt
+  # if there's flatpak, install using flatpak  
+  # etc.
+}
+
 # Package Selection ############################################################
 
 print_packages_installed () {
@@ -92,16 +100,13 @@ print_packages_installed () {
   fi
 }
 
-menu_package_categories () {
-  printf "\n"
-  printf "Press $(gum style --bold --foreground '#E60000' 'x') to select \
-software categories;\n"
-  printf "press $(gum style --bold --foreground '#E60000' \
-'enter') to confirm your selection:\n"
-  PACKAGE_CATEGORIES=$(jq -r '.categories | map(.category_name)[]' \
-    packages.json | gum choose --no-limit)
-  echo "$PACKAGE_CATEGORIES"
-}
+# menu_package_categories () {
+  # printf "\n"
+  # printf "Press $(gum style --bold --foreground '#E60000' 'x') to select software categories;\n"
+  # printf "press $(gum style --bold --foreground '#E60000' 'enter') to confirm your selection:\n"
+  # PACKAGE_CATEGORIES=$(jq -r '.categories | map(.category_name)[]' packages.json | gum choose --no-limit)
+  # echo "$PACKAGE_CATEGORIES"
+# }
 
 # verify_package_installed #####################################################
 # Returns 1 if package is missing; 0 if found.
@@ -163,4 +168,3 @@ install_package () {
 print_title
 print_os
 gum_check
-menu_package_categories
