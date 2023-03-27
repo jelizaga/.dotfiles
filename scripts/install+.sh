@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PACKAGES_INSTALLED=0
+PASSWORD=""
 OS=$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
 OS_IS_DEBIAN_BASED=false
 OS_IS_RHEL_BASED=false
@@ -9,6 +10,7 @@ OS_IS_SUSE_BASED=false
 # print_title
 # Prints install+'s title.
 print_title () {
+  printf "\n"
   printf "   \"                    m           \"\"#    \"\"#\n"
   printf " mmm    m mm    mmm   mm#mm   mmm     #      #      m\n"
   printf "   #    #\"  #  #   \"    #    \"   #    #      #      #\n"
@@ -18,20 +20,17 @@ print_title () {
 }
 
 print_os () {
-  printf "$(gum style --bold 'OS:') $os\n"
+  printf "$(gum style --bold 'OS:') $OS\n"
 }
 
-# gum_is_installed
-#  `true` - if gum is installed.
-#  `false` - if gum has yet to be installed.
-gum_is_installed () {
-  dpkg -s gum >& /dev/null
+package_is_installed () {
+  command -v $1 >& /dev/null
   if [ $? == 1 ]; then
     false
   else
     true
   fi
-}
+} 
 
 # OS Detection #################################################################
 # Functions related to detecting the OS in order to determine the default
@@ -51,45 +50,62 @@ os_is_debian_based () {
     [ "$OS" = "ArcoLinux" ] || \
     [ "$OS" = "Peppermint Linux" ] || \
     [ "$OS" = "Bodhi Linux" ]; then
-    $OS_IS_DEBIAN_BASED=true;
-  else
-    $OS_IS_DEBIAN_BASED=false;
+    OS_IS_DEBIAN_BASED=true;
   fi
 }
 
 os_is_rhel_based () {
   if \
     [ "$OS" = "Fedora" ] || \
-    [ "$OS" = "Red Hat Enterprise Linux"] || \
-    [ "$OS" = "CentOS Linux"] || \
+    [ "$OS" = "Red Hat Enterprise Linux" ] || \
+    [ "$OS" = "CentOS Linux" ] || \
     [ "$OS" = "Oracle Linux Server" ] || \
     [ "$OS" = "Rocky Linux" ] || \
     [ "$OS" = "AlmaLinux" ] || \
     [ "$OS" = "OpenMandriva Lx" ] ||\
     [ "$OS" = "Mageia" ] ; then
-    $OS_IS_RHEL_BASED=true;
-  else
-    $OS_IS_RHEL_BASED=false;
+    OS_IS_RHEL_BASED=true;
   fi
 }
 
-# os_is_suse_based
 os_is_suse_based () {
   if \
-    [ "$OS" = "OpenSUSE" ] \
+    [ "$OS" = "OpenSUSE" ] || \
     [ "$OS" = "SUSE Enterprise Linux Server" ]; then
-    $OS_IS_SUSE_BASED=true;
-  else
-    $OS_IS_SUSE_BASED=false;
+    OS_IS_SUSE_BASED=true;
   fi
 }
 
-# gum_check
-# Checks if gum is installed; installs gum if it's not installed.
-gum_check () {
-  if ! gum_is_installed; then
-    printf "❌ Gum is not installed."
-    install_gum
+check_os () {
+  os_is_debian_based;
+  os_is_rhel_based;
+  os_is_suse_based;
+}
+
+# Dependencies #################################################################
+
+check_dependencies () {
+  if ! package_is_installed gum || ! package_is_installed jq; then
+    printf "Welcome to install+! You're using $OS.\n";
+    printf "We need some dependencies to get started:\n";
+    # Install gum:
+    if ! package_is_installed gum; then
+      printf "🛠️ We need gum.\n";
+      install_gum;
+      if [ $? == 1 ]; then
+        printf "❗ gum could not be installed.";
+      else
+        msg_installed gum;
+      fi
+    fi
+    # Install jq:
+    if ! package_is_installed jq; then
+      printf "🛠️ We need $(gum style --bold 'jq').\n";
+      install_package jq apt;
+    fi
+  fi
+  if package_is_installed gum && package_is_installed jq; then
+    return 0;
   fi
 }
 
@@ -97,16 +113,24 @@ gum_check () {
 # Functions related to printing reusable messages.
 
 msg_not_installed () {
-  printf "❌ $1 is missing.\n"
+  printf "❌ $(gum style --bold $1) is missing.\n"
 }
 
 msg_already_installed () {
-  printf "👍 $1 is already installed.\n"
+  printf "👍 $(gum style --bold $1) is already installed.\n"
+}
+
+msg_installed () {
+  printf "🎁 $(gum style --bold $1) installed.\n"
+}
+
+msg_cannot_install () {
+  printf "❗ $(gum style --bold $1) could not be installed.\n"
 }
 
 msg_packages_installed () {
   if [ $PACKAGES_INSTALLED  -gt 1 ]; then
-    printf "🏡🚛 $packages_installed packages installed.\n"
+    printf "🏡🚛 $PACKAGES_INSTALLED packages installed.\n"
   elif [ $PACKAGES_INSTALLED -eq 1 ]; then
     printf "🏡🚚 One package installed.\n"
   else
@@ -120,11 +144,22 @@ msg_packages_installed () {
 # install_gum
 # Installs gum.
 install_gum () {
-  if os_is_debian_based; then
+  if $OS_IS_DEBIAN_BASED; then
+    echo "🌎 Installing gum..."
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
     echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
     sudo apt update && sudo apt install gum
+  elif $OS_IS_RHEL_BASED; then
+    echo "[charm]
+    name=Charm
+    baseurl=https://repo.charm.sh/yum/
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://repo.charm.sh/yum/gpg.key" | sudo tee /etc/yum.repos.d/charm.repo
+    sudo yum install gum
+  else 
+    return 1
   fi
 }
 
@@ -188,29 +223,32 @@ verify_package_installed () {
 #   $1 - Package id.
 #   $2 - Package manager or method to use to install package.
 install_package () {
-  verify_package_installed $1 $2
-  if [ $? == 1 ]; then
-    if [ $2 == apt ]; then
-      gum spin --spinner globe --title "Installing $1..." -- sudo apt install $1
-    elif [ $2 == flatpak ]; then
-      gum spin --spinner globe --title "Installing $1..." -- flatpak install -y $1 
-    elif [ $2 == snap ]; then
-      #gum spin --spinner globe --title "Installing $1..." -- snap install $1
-      snap install $1
-    elif [ $2 == npm ]; then
-      gum spin --spinner globe --title "Installing $1..." npm install $1
-      #npm install $1 >& /dev/null
-      printf "🎁 $1 installed.\n"
-    fi
-    if [ $? == 0 ]; then
-      printf "🎁 $1 installed.\n"
-      packages_installed=$(($packages_installed + 1))
-    else
-      printf "❗ $1 could not be installed.\n"
-    fi
+  if [ $2 == apt ]; then
+    gum spin --spinner globe --title "Installing $(gum style --bold $1)..." -- sudo apt install -y $1
+  elif [ $2 == flatpak ]; then
+    gum spin --spinner globe --title "Installing $(gum style --bold $1)..." -- flatpak install -y $1 
+  elif [ $2 == snap ]; then
+    #gum spin --spinner globe --title "Installing $1..." -- snap install $1
+    snap install $1
+  elif [ $2 == npm ]; then
+    gum spin --spinner globe --title "Installing $(gum style --bold $1)..." npm install $1
+    #npm install $1 >& /dev/null
+    printf "🎁 $1 installed.\n"
+  fi
+  if [ $? == 0 ]; then
+    msg_installed $1
+    packages_installed=$(($packages_installed + 1))
+  else
+    msg_cannot_install $1
   fi
 }
 
-print_title
-print_os
-gum_check
+################################################################################
+
+sudo -v
+check_os
+check_dependencies
+if [ $? == 0 ]; then
+  print_title
+  print_os
+fi
