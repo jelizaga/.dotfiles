@@ -1,9 +1,12 @@
 #!/bin/bash
 
-packages_installed=0
-os=$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
+PACKAGES_INSTALLED=0
+OS=$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
+OS_IS_DEBIAN_BASED=false
+OS_IS_RHEL_BASED=false
+OS_IS_SUSE_BASED=false
 
-# print_title ##################################################################
+# print_title
 # Prints install+'s title.
 print_title () {
   printf "   \"                    m           \"\"#    \"\"#\n"
@@ -30,25 +33,54 @@ gum_is_installed () {
   fi
 }
 
-# os_is_debian_based
-#   `true` - if OS is Debian-based.
-#   `false` - if OS is not Debian-based.
+# OS Detection #################################################################
+# Functions related to detecting the OS in order to determine the default
+# package manager available.
+
 os_is_debian_based () {
-  if [ "$os" = "Pop!_OS" ] || [ "$os" = "Ubuntu" ] || [ "$os" = "Debian"]; then
-    true
+  if \
+    [ "$OS" = "Pop!_OS" ] || \
+    [ "$OS" = "Ubuntu" ] || \
+    [ "$OS" = "Debian GNU/Linux"] || \
+    [ "$OS" = "Linux Mint" ] || \
+    [ "$OS" = "elementary OS" ] || \
+    [ "$OS" = "Zorin OS" ] || \
+    [ "$OS" = "MX Linux" ] || \
+    [ "$OS" = "Raspberry Pi OS" ] || \
+    [ "$OS" = "Deepin" ] || \
+    [ "$OS" = "ArcoLinux" ] || \
+    [ "$OS" = "Peppermint Linux" ] || \
+    [ "$OS" = "Bodhi Linux" ]; then
+    $OS_IS_DEBIAN_BASED=true;
   else
-    false
+    $OS_IS_DEBIAN_BASED=false;
   fi
 }
 
-# os_is_rhel_based
-#   `true` - if OS is RHEL-based.
-#   `false` - if OS is not RHEL-based.
 os_is_rhel_based () {
-  if [ "$os" = "Fedora" ]; then
-    true
+  if \
+    [ "$OS" = "Fedora" ] || \
+    [ "$OS" = "Red Hat Enterprise Linux"] || \
+    [ "$OS" = "CentOS Linux"] || \
+    [ "$OS" = "Oracle Linux Server" ] || \
+    [ "$OS" = "Rocky Linux" ] || \
+    [ "$OS" = "AlmaLinux" ] || \
+    [ "$OS" = "OpenMandriva Lx" ] ||\
+    [ "$OS" = "Mageia" ] ; then
+    $OS_IS_RHEL_BASED=true;
   else
-    false
+    $OS_IS_RHEL_BASED=false;
+  fi
+}
+
+# os_is_suse_based
+os_is_suse_based () {
+  if \
+    [ "$OS" = "OpenSUSE" ] \
+    [ "$OS" = "SUSE Enterprise Linux Server" ]; then
+    $OS_IS_SUSE_BASED=true;
+  else
+    $OS_IS_SUSE_BASED=false;
   fi
 }
 
@@ -61,7 +93,29 @@ gum_check () {
   fi
 }
 
+# Messages #####################################################################
+# Functions related to printing reusable messages.
+
+msg_not_installed () {
+  printf "❌ $1 is missing.\n"
+}
+
+msg_already_installed () {
+  printf "👍 $1 is already installed.\n"
+}
+
+msg_packages_installed () {
+  if [ $PACKAGES_INSTALLED  -gt 1 ]; then
+    printf "🏡🚛 $packages_installed packages installed.\n"
+  elif [ $PACKAGES_INSTALLED -eq 1 ]; then
+    printf "🏡🚚 One package installed.\n"
+  else
+    printf "🏡🛻 No packages installed.\n"
+  fi
+}
+
 # Package Installation  ########################################################
+# Functions related to installing packages.
 
 # install_gum
 # Installs gum.
@@ -81,6 +135,7 @@ install_d2 () {
 }
 
 install_everything () {
+  printf "test"
   # get a category
   # for every package in the category
   # if there's apt, install using apt
@@ -90,15 +145,6 @@ install_everything () {
 
 # Package Selection ############################################################
 
-print_packages_installed () {
-  if [ $packages_installed -gt 1 ]; then
-    printf "🏡🚛 $packages_installed packages installed.\n"
-  elif [ $packages_installed -eq 1 ]; then
-    printf "🏡🚚 One package installed.\n"
-  else
-    printf "🏡🛻 No packages installed.\n"
-  fi
-}
 
 # menu_package_categories () {
   # printf "\n"
