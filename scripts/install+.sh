@@ -1,16 +1,17 @@
 #!/bin/bash
 
-PACKAGES_INSTALLED=0
-PASSWORD=""
 OS=$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
 OS_IS_DEBIAN_BASED=false
 OS_IS_RHEL_BASED=false
 OS_IS_SUSE_BASED=false
+PACKAGES_FILE="packages.json"
+PACKAGES_INSTALLED=0
 
 # print_title
 # Prints install+'s title.
 print_title () {
   printf "\n"
+  printf "$(gum style --italic '        welcome to')\n"
   printf "   \"                    m           \"\"#    \"\"#\n"
   printf " mmm    m mm    mmm   mm#mm   mmm     #      #      m\n"
   printf "   #    #\"  #  #   \"    #    \"   #    #      #      #\n"
@@ -31,6 +32,70 @@ package_is_installed () {
     true
   fi
 } 
+
+menu_main () {
+  print_title
+  print_os
+  printf "\n"
+  SELECTED=$(gum choose \
+  "Install Packages" \
+  "Settings" \
+  "Quit");
+  if [[ $SELECTED == "Install Packages" ]]; then
+    menu_install_packages
+  elif [[ $SELECTED == "Settings" ]]; then
+    menu_settings
+  elif [[ $SELECTED == "Quit" ]]; then
+    return 0
+  fi
+}
+
+menu_settings () {
+  msg_error "to be done";
+}
+
+menu_install_packages () {
+  check_packages_file;
+  printf "\n";
+  printf "$(gum style --bold 'Select Categories')\n";
+  printf "$(gum style --italic 'Press ')";
+  printf "$(gum style --bold --foreground '#E60000' 'x')";
+  printf "$(gum style --italic ' to select package categories')\n";
+  printf "$(gum style --italic 'press ')"
+  printf "$(gum style --bold --foreground '#E60000' 'a')";
+  printf "$(gum style --italic ' to select all')\n"
+  printf "$(gum style --italic 'press ')"
+  printf "$(gum style --bold --foreground '#E60000' 'enter')"
+  printf "$(gum style --italic ' to confirm your selection:')\n"
+  PACKAGE_CATEGORIES=$(jq -r '.categories | map(.category_name)[]' packages.json | gum choose --no-limit)
+  # Roll `PACKAGE_CATEGORIES` into an array (`PACKAGE_CATEGORIES_ARRAY`):
+  PACKAGE_CATEGORIES_ARRAY=();
+  readarray -t PACKAGE_CATEGORIES_ARRAY <<< "$PACKAGE_CATEGORIES"
+  # Check if no category is selected:
+  if [ "${#PACKAGE_CATEGORIES_ARRAY[@]}" -eq 1 ] && [[ ${PACKAGE_CATEGORIES_ARRAY[0]} == "" ]]; then
+    printf "No package categories selected.\n"
+    menu_main
+  else
+    menu_package_select "${PACKAGE_CATEGORIES_ARRAY[@]}"
+  fi
+}
+
+menu_package_select () {
+  printf "\n"
+  for arg in "$@"; do
+    printf "$arg\n"
+  done
+  printf "$(gum style --bold 'Install Packages')\n";
+  printf "$(gum style --italic 'Press ')";
+  printf "$(gum style --bold --foreground '#E60000' 'x')";
+  printf "$(gum style --italic ' to select packages to install')\n";
+  printf "$(gum style --italic 'press ')"
+  printf "$(gum style --bold --foreground '#E60000' 'a')";
+  printf "$(gum style --italic ' to select all')\n"
+  printf "$(gum style --italic 'press ')"
+  printf "$(gum style --bold --foreground '#E60000' 'enter')"
+  printf "$(gum style --italic ' to confirm your selection:')\n"
+}
 
 # OS Detection #################################################################
 # Functions related to detecting the OS in order to determine the default
@@ -109,6 +174,16 @@ check_dependencies () {
   fi
 }
 
+check_packages_file () {
+  if ! [ -e $PACKAGES_FILE ]; then
+    printf "\n"
+    printf "⚠️  $(gum style --bold 'packages.json') not found.\n"
+    printf "$(gum style --italic 'Please select a valid ')"
+    printf "$(gum style --bold 'packages.json')"
+    printf "$(gum style --italic ' file:')\n"
+  fi
+}
+
 # Messages #####################################################################
 # Functions related to printing reusable messages.
 
@@ -136,6 +211,10 @@ msg_packages_installed () {
   else
     printf "🏡🛻 No packages installed.\n"
   fi
+}
+
+msg_error () {
+  printf "🐛 $(gum style --bold 'Error:') $1\n"
 }
 
 # Package Installation  ########################################################
@@ -181,12 +260,7 @@ install_everything () {
 # Package Selection ############################################################
 
 
-# menu_package_categories () {
-  # printf "\n"
-  # printf "Press $(gum style --bold --foreground '#E60000' 'x') to select software categories;\n"
-  # printf "press $(gum style --bold --foreground '#E60000' 'enter') to confirm your selection:\n"
-  # PACKAGE_CATEGORIES=$(jq -r '.categories | map(.category_name)[]' packages.json | gum choose --no-limit)
-  # echo "$PACKAGE_CATEGORIES"
+#  () {
 # }
 
 # verify_package_installed #####################################################
@@ -249,6 +323,5 @@ sudo -v
 check_os
 check_dependencies
 if [ $? == 0 ]; then
-  print_title
-  print_os
+  menu_main
 fi
