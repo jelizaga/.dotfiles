@@ -1,0 +1,3 @@
+[submodule "instally"]
+	path = instally
+	url = https://github.com/jelizaga/instally
