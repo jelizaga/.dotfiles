@@ -1,0 +1,6 @@
+layout grid
+launch --title "task" taskwarrior-tui
+
+new_tab journal
+launch vim .desk/j_sound.md
+launch vim .desk/j_tech.md
