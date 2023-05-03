@@ -83,7 +83,7 @@
         {
           "name": "ttyd",
           "description": "share your terminal over the web",
-          "command": "wget -P ~/Downloads https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64; mv ~/Downloads/ttyd.x86_64 ~/.local/bin/ttyd"
+          "command": "wget -P ~/Downloads https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64; mv ~/Downloads/ttyd.x86_64 ~/.local/bin/ttyd; chmod +x ~/.local/bin/ttyd;"
         }
       ]
     },
@@ -449,7 +449,8 @@
         {
           "name": "VHS",
           "description": "write terminal recordings as code",
-          "Pop!_OS": "sudo mkdir -p /etc/apt/keyrings; curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg; echo 'deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *' | sudo tee /etc/apt/sources.list.d/charm.list; sudo apt update; sudo apt install vhs;"
+          "Pop!_OS": "sudo mkdir -p /etc/apt/keyrings; curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg; echo 'deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *' | sudo tee /etc/apt/sources.list.d/charm.list; sudo apt update; sudo apt install vhs;",
+          "Fedora Linux": "echo '[charm] name=Charm baseurl=https://repo.charm.sh/yum/ enabled=1 gpgcheck=1 gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo; sudo yum install vhs ffmpeg;"
         },
         {
           "name": "asciinema",
