@@ -130,6 +130,8 @@ export PATH=/home/jelizaga/.local/bin:$PATH
 
 export EDITOR=/usr/bin/vim
 
+export VHS=/Videos/VHS
+
 ################################################################################
 
 neofetch

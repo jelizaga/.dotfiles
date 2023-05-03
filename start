@@ -19,6 +19,15 @@ package_is_installed () {
   fi
 }
 
+create_local_bin () {
+  if ! [[ -d $HOME/.local ]]; then
+    mkdir $HOME/.local;
+  fi
+  if ! [[ -d $HOME/.local/bin ]]; then
+    mkdir $HOME/.local/bin;
+  fi
+}
+
 get_curl () {
   if ! package_is_installed curl; then
     if \
@@ -72,6 +81,7 @@ run_instally () {
 
 ################################################################################
 
+create_local_bin;
 get_curl;
 if [ $? == 0 ]; then
   prepare_instally;
