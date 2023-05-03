@@ -7,14 +7,17 @@ Configs, scripts, &amp; dotfiles used to customize my Linux machines.
 <!-- vim-markdown-toc GFM -->
 
 * [🏠 File Structure](#-file-structure)
+  * [start](#start)
   * [/dots](#dots)
   * [/scripts](#scripts)
-    * [install+.sh](#installsh)
-    * [links+.sh](#linkssh)
 
 <!-- vim-markdown-toc -->
 
 ## 🏠 File Structure
+
+### start
+
+`start` initializes the installation and configuration of my setup.
 
 ### /dots
 
@@ -33,6 +36,8 @@ these to keep customizations and settings consistent across machines.
 * `kitty.conf` - [`kitty`](https://sw.kovidgoyal.net/kitty/conf/) config file.
 * `mpd.conf` - [`mpd`](https://www.musicpd.org/) config file.
 * `ncmpcpp.conf` - [`ncmpcpp`](https://rybczak.net/ncmpcpp/) config file.
+* `package.json` - [`instally`](https://github.com/jelizaga/instally)'s packages
+  to install.
 * `quotes` - Raw `%`-separated quotes file to be used by 
   [`fortune`](https://en.wikipedia.org/wiki/Fortune_(Unix)).
 * `quotes.dat` - Database of quotes from `quotes` used by `fortune`.
@@ -42,12 +47,3 @@ these to keep customizations and settings consistent across machines.
 ### /scripts
 
 `/scripts` contains scripts written for machine set-up and maintenance.
-
-#### install+.sh
-
-`install+.sh` interactively installs my frequently-used applications.
-
-#### links+.sh
-
-`links+.sh` interactively creates symbolic links from various application config
-files to their equivalents in `/dots`.

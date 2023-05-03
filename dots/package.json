@@ -2,6 +2,7 @@
   "groups": [
     {
       "group": "⚙️ Core System",
+      "description": "the essentials of a comfy & efficient system",
       "packages": [
         {
           "name": "Vim",
@@ -83,6 +84,7 @@
     },
     {
       "group": "⏰ Productivity",
+      "description": "get stuff done",
       "packages": [
         {
           "name": "Taskwarrior",
@@ -96,11 +98,22 @@
           "zypper": {
             "id": "taskwarrior"
           }
+        },
+        {
+          "name": "Espanso",
+          "description": "text expansion tool",
+          "Pop!_OS": {
+            "command": "wget -P ~/Downloads https://github.com/federico-terzi/espanso/releases/download/v2.1.8/espanso-debian-x11-amd64.deb; sudo apt install ~/Downloads/espanso-debian-x11-amd64.deb; espanso service register; espanso start; rm ~/Downloads/espanso-debian-x11-amd64.deb;"
+          },
+          "Ubuntu": {
+            "command": "sudo snap install espanso --classic --channel=latest/edge; espanso service register; espanso start"
+          }
         }
       ] 
     },
     {
       "group": "🧠 Knowledge Work",
+      "description": "keep your wits about you",
       "packages": [
         {
           "name": "Anki",
@@ -130,6 +143,13 @@
           }
         },
         {
+          "name": "Tiddlywiki",
+          "description": "non-linear personal wiki",
+          "npm": {
+            "id": "tiddlywiki"
+          }
+        },
+        {
           "name": "buku",
           "description": "collect and manage bookmarks via terminal",
           "apt": {
@@ -156,6 +176,7 @@
     },
     {
       "group": "💬 Communications",
+      "description": "stay connected",
       "packages": [
         {
           "name": "Zoom",
@@ -195,12 +216,13 @@
     },
     {
       "group": "🔒 Security",
+      "description": "stay safe",
       "packages": [
         {
           "name": "Mullvad VPN",
           "description": "virtual private network",
           "command": "wget -P ~/Downloads https://mullvad.net/en/download/app/deb/latest; sudo dpkg -i ~/Downloads/MullvadVPN-2023.3_amd64.deb; rm ~/Downloads/MullvadVPN-2023.3_amd64.deb;",
-          "Fedora Linux 37 (Workstation Edition)": {
+          "Fedora Linux": {
             "command": "wget -P ~/Downloads https://mullvad.net/en/download/app/rpm/latest; sudo dnf install ~/Downloads/MullvadVPN-2023.3_x86_64.rpm; rm ~/Downloads/MullvadVPN-2023.3_x86_64.rpm"
           }
         },
@@ -225,6 +247,7 @@
     },
     {
       "group": "💻 Software Engineering / Core",
+      "description": "crucial software engineering tools",
       "packages": [
         {
           "name": "Git",
@@ -256,13 +279,49 @@
       ]
     },
     {
-      "group": "🕸️ Software Engineering / Web"
+      "group": "🕸️ Software Engineering / Web",
+      "description": "develop web sites for the AI botnet of the dead internet to enjoy"
     },
     {
-      "group": "👾 Software Engineering / Game"
+      "group": "📱 Software Engineering / Mobile",
+      "description": "develop software for pocket rectangles"
+    },
+    {
+      "group": "👾 Software Engineering / Game",
+      "description": "develop games that could make people feel okay"
+    },
+    {
+      "group": "🤖 Artificial Intelligence",
+      "description": "fade into the digitized human gestalt"
+    },
+    {
+      "group": "📊 Data",
+      "description": "wield the power of data to make cool tools",
+      "packages": [
+        {
+          "name": "NumPy",
+          "description": "scientific computing for Python",
+          "pip": {
+            "id": "numpy"
+          }
+        },
+        {
+          "name": "VisiData",
+          "description": "explore and arrange tabular data in the terminal",
+          "pip": {
+            "id": "visidata"
+          }
+        },
+        {
+          "name": "jql",
+          "description": "jq TUI playground",
+          "command": "wget -P ~/Downloads https://github.com/noahgorstein/jqp/releases/download/v0.4.0/jqp_0.4.0_Linux_x86_64.tar.gz; mkdir ~/Downloads/jqp; tar -xzvf ~/Downloads/jqp_0.4.0_Linux_x86_64.tar.gz -C ~/Downloads/jqp; mv ~/Downloads/jqp/jq-linux64 ~/.local/.bin/jqp;"
+        }
+      ]
     },
     {
       "group": "🖲️ Desktop Environment / GNOME",
+      "description": "packages specific to GNOME",
       "packages": [
         {
           "name": "GNOME Disks",
@@ -294,6 +353,7 @@
     },
     {
       "group": "🎨 Graphics / Fabrication",
+      "description": "composite, edit, and create images",
       "packages": [
         {
           "name": "Blender",
@@ -361,10 +421,41 @@
       ]
     },
     {
-      "group": "🎥 Video / Fabrication"
+      "group": "🖼️ Graphics / Appreciation",
+      "description": "appreciate images"
+    },
+    {
+      "group": "🎥 Video / Fabrication",
+      "description": "craft motion pictures",
+      "packages": [
+        {
+          "name": "kdenlive",
+          "description": "FOSS non-linear video editor",
+          "apt": {
+            "id": "kdenlive"
+          },
+          "dnf": {
+            "id": "kdenlive"
+          },
+          "zypper": {
+            "id": "kdenlive"
+          }
+        },
+        {
+          "name": "VHS",
+          "description": "write terminal recordings as code",
+          "Pop!_OS": "sudo mkdir -p /etc/apt/keyrings; curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg; echo 'deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *' | sudo tee /etc/apt/sources.list.d/charm.list; sudo apt update; sudo apt install vhs;"
+        },
+        {
+          "name": "asciinema",
+          "description": "terminal session recorder",
+          "pip": "asciinema"
+        }
+      ]
     },
     {
       "group": "📼 Video / Appreciation",
+      "description": "view videos",
       "packages": [
         {
           "name": "ffmpeg",
@@ -404,10 +495,12 @@
       ]
     },
     {
-      "group": "🎹 Audio / Fabrication"
+      "group": "🎹 Audio / Fabrication",
+      "description": "compose music and sound"
     },
     {
       "group": "🎸 Audio / Appreciation",
+      "description": "enjoy sonic experiences",
       "packages": [
         {
           "name": "Spotify",
@@ -436,6 +529,7 @@
     },
     {
       "group": "🕹️ Video Games",
+      "description": "challenging software to keep you occupied & amused",
       "packages": [
         {
           "name": "Steam",
@@ -450,11 +544,25 @@
           "apt": {
             "id": "higan"
           }
+        },
+        {
+          "name": "Mupen64Plus",
+          "description": "Nintendo 64 emulator",
+          "apt": {
+            "id": "mupen64plus-qt"
+          },
+          "dnf": {
+            "id": "mupen64plus-qt"
+          },
+          "zypper": {
+            "id": "mupen64plus-ui-console"
+          }
         }
       ]
     },
     {
       "group": "🐮 Goofy",
+      "description": "very important superfluous extras",
       "packages": [
         {
           "name": "cmatrix",
@@ -511,11 +619,23 @@
           "apt": {
             "id": "nsnake"
           },
+          "dnf": {
+            "id": "nsnake"
+          },
           "zypper": {
             "id": "nsnake"
           }
         }
       ]
+    }
+  ],
+  "packages": [
+    {
+      "name": "cmatrix",
+      "description": "TESTING UNCATEGORIZED PACKAGE",
+      "apt": {
+        "id": "cmatrix"
+      }
     }
   ]
 }

@@ -136,3 +136,11 @@ neofetch
 printf "\n"
 fortune ~/.dotfiles/dots/quotes
 printf "\n"
+
+# fnm
+export PATH="/home/jelizaga/.local/share/fnm:$PATH"
+eval "`fnm env`"
+
+# fnm
+export PATH="/home/jelizaga/.local/share/fnm:$PATH"
+eval "`fnm env`"

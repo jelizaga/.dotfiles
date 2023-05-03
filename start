@@ -1,0 +1,79 @@
+#!/bin/bash
+
+################################################################################
+#          m                    m   ############################################
+#  mmm   mm#mm   mmm    m mm  mm#mm ############################################
+# #   "    #    "   #   #"  "   #   ############################################
+#  """m    #    m"""#   #       #   ############################################
+# "mmm"    "mm  "mm"#   #       "mm ############################################
+################################################################################
+
+OS=$(grep '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"');
+
+package_is_installed () {
+  command -v $1 >& /dev/null
+  if [ $? == 1 ]; then
+    false
+  else
+    true
+  fi
+}
+
+get_curl () {
+  if ! package_is_installed curl; then
+    if \
+      [ "$OS_NAME" = "Pop!_OS" ] || \
+      [ "$OS_NAME" = "Ubuntu" ] || \
+      [ "$OS_NAME" = "Debian GNU/Linux" ] || \
+      [ "$OS_NAME" = "Linux Mint" ] || \
+      [ "$OS_NAME" = "elementary OS" ] || \
+      [ "$OS_NAME" = "Zorin OS" ] || \
+      [ "$OS_NAME" = "MX Linux" ] || \
+      [ "$OS_NAME" = "Raspberry Pi OS" ] || \
+      [ "$OS_NAME" = "Deepin" ] || \
+      [ "$OS_NAME" = "ArcoLinux" ] || \
+      [ "$OS_NAME" = "Peppermint Linux" ] || \
+      [ "$OS_NAME" = "Bodhi Linux" ]; then
+      sudo apt install curl;
+    fi
+    if \
+      [ "$OS_NAME" = "Fedora Linux" ] || \
+      [ "$OS_NAME" = "Red Hat Enterprise Linux" ] || \
+      [ "$OS_NAME" = "CentOS Linux" ] || \
+      [ "$OS_NAME" = "Oracle Linux Server" ] || \
+      [ "$OS_NAME" = "Amazon Linux" ] || \
+      [ "$OS_NAME" = "Rocky Linux" ] || \
+      [ "$OS_NAME" = "AlmaLinux" ] || \
+      [ "$OS_NAME" = "OpenMandriva Lx" ] ||\
+      [ "$OS_NAME" = "Mageia" ] ; then
+      sudo yum install curl;
+    fi
+    if \
+      [ "$OS_NAME" = "openSUSE" ] || \
+      [ "$OS_NAME" = "openSUSE Tumbleweed" ] || \
+      [ "$OS_NAME" = "SUSE Enterprise Linux Server" ]; then
+      sudo zypper install curl;
+    fi
+  fi
+}
+
+prepare_instally () {
+  if ! [[ -d $HOME/.instally ]]; then
+    mkdir $HOME/.instally;
+  fi
+  if ! [ -e $HOME/.instally/package.json ]; then
+    ln -s $HOME/.dotfiles/dots/package.json $HOME/.instally/package.json;
+  fi
+}
+
+run_instally () {
+  curl https://raw.githubusercontent.com/jelizaga/instally/main/instally | bash;
+}
+
+################################################################################
+
+get_curl;
+if [ $? == 0 ]; then
+  prepare_instally;
+  run_instally;
+fi
