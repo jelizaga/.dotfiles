@@ -313,7 +313,7 @@
           }
         },
         {
-          "name": "jql",
+          "name": "jqp",
           "description": "jq TUI playground",
           "command": "wget -P ~/Downloads https://github.com/noahgorstein/jqp/releases/download/v0.4.0/jqp_0.4.0_Linux_x86_64.tar.gz; mkdir ~/Downloads/jqp; tar -xzvf ~/Downloads/jqp_0.4.0_Linux_x86_64.tar.gz -C ~/Downloads/jqp; mv ~/Downloads/jqp/jq-linux64 ~/.local/.bin/jqp;"
         }
