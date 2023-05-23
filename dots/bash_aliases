@@ -3,8 +3,8 @@
 alias memex="tiddlywiki ~/Wikis/memex --listen port=8080"
 # taskwarrior & timewarrior
 alias taw="task"
-alias twt="taskwarrior-tui"
 alias tiw="timew"
+alias t="taskwarrior-tui"
 # vim
 alias v="vim"
 # buku
