@@ -13,3 +13,5 @@ alias b="buku"
 alias now="date +'%D %T'"
 alias nowd="date +'%D'"
 alias nowt="date +'%T'"
+# kitty
+alias h="kitty --session ~/.dotfiles/dots/startup_sessions/home"

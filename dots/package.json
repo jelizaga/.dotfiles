@@ -272,6 +272,13 @@
           }
         },
         {
+          "name": "Eclipse",
+          "description": "Java development IDE",
+          "flatpak": {
+            "id": "org.eclipse.Java"
+          }
+        },
+        {
           "name": "VirtualBox",
           "description": "x86 virtualization",
           "Pop!_OS": {
@@ -285,7 +292,12 @@
     },
     {
       "group": "🕸️ Software Engineering / Web",
-      "description": "develop web sites for the AI botnet of the dead internet to enjoy"
+      "description": "develop web sites for the AI botnet of the dead internet to enjoy",
+      "packages": [
+        "name": "nvm",
+        "description": "Node.js version manager",
+        "command": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash"
+      ]
     },
     {
       "group": "📱 Software Engineering / Mobile",
@@ -293,7 +305,16 @@
     },
     {
       "group": "👾 Software Engineering / Game",
-      "description": "develop games that could make people feel okay"
+      "description": "develop games that could make people feel okay",
+      "packages": [
+        {
+          "name": "Godot Engine",
+          "description": "cross-platform FOSS game engine",
+          "flatpak": {
+            "id": "org.godotengine.Godot"
+          }
+        }
+      ]
     },
     {
       "group": "🤖 Artificial Intelligence",
@@ -417,11 +438,6 @@
           "flatpak": {
             "id": "org.inkscape.Inkscape"
           }
-        },
-        {
-          "name": "d2",
-          "description": "diagramming script language",
-          "command": "curl -fsSL https://d2lang.com/install.sh | sh -s --"
         }
       ]
     },
