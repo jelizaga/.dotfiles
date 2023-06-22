@@ -47,3 +47,10 @@ these to keep customizations and settings consistent across machines.
 ### /scripts
 
 `/scripts` contains scripts written for machine set-up and maintenance.
+
+* `cron` - Schedules the recurrent execution of various scripts (using 
+  [`crontab`](https://en.wikipedia.org/wiki/Cron)).
+* `doconvert` - Recursively converts all documents in a given directory from a 
+  given format to another format (using [`pandoc`](https://pandoc.org/)).
+* `links` - Interactive sym-linking tool. Creates symbolic links from expected
+  config file paths to their corresponding files in [`/dots`](#dots).
