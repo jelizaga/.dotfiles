@@ -123,13 +123,10 @@ fi
 # fnm
 export PATH=/home/jelizaga/.fnm:$PATH
 eval "`fnm env`"
-
 export PATH=/home/jelizaga/.bin:$PATH
-
 export PATH=/home/jelizaga/.local/bin:$PATH
-
+export PATH=/home/jelizaga/.dotfiles/scripts:$PATH
 export EDITOR=/usr/bin/vim
-
 export VHS=/Videos/VHS
 
 ################################################################################

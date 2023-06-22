@@ -1,0 +1,20 @@
+#!/bin/bash
+
+################################################################################
+# doconvert ####################################################################
+################################################################################
+
+DIR=$1;
+CONVERT_FROM=$2;
+CONVERT_TO=$3;
+
+echo "DIR: $DIR";
+echo "CONVERT_FROM: $CONVERT_FROM";
+echo "CONVERT_TO: $CONVERT_TO";
+
+find "$DIR" \
+  -type f \
+  -wholename "*.$CONVERT_FROM" \
+  -exec sh -c 'pandoc "$0" -o "${0%.'"$CONVERT_FROM"'}.'"$CONVERT_TO"'"' \
+  {} \;
+

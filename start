@@ -79,6 +79,32 @@ run_instally () {
   curl https://raw.githubusercontent.com/jelizaga/instally/main/instally | bash;
 }
 
+set_script_permissions () {
+  chmod +x $HOME/.dotfiles/scripts/*;
+}
+
+run_cron () {
+  print_running_script cron;
+  cron;
+  printf "📓 crontab contents:\n"
+  crontab -l;
+}
+
+print_warning () {
+  MESSAGE=$0;
+  printf "⚠️ WARNING: $MESSAGE\n";
+}
+
+print_failure () {
+  MESSAGE=$0;
+  printf "🚫 FAILURE: $MESSAGE\n";
+}
+
+print_running_script () {
+  SCRIPT=$0;
+  printf "📜 Running ./scripts/$SCRIPT:";
+}
+
 ################################################################################
 
 create_local_bin;
@@ -86,4 +112,11 @@ get_curl;
 if [ $? == 0 ]; then
   prepare_instally;
   run_instally;
+fi
+set_script_permissions;
+if [ $? == 0 ]; then
+  printf "🔓 Scripts in ./scripts are executable.\n";
+  run_cron;
+else
+  print_failure "Cannot execute scripts in ./scripts.\n";
 fi

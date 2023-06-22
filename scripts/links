@@ -1,0 +1,102 @@
+#!/bin/bash
+
+################################################################################
+# links+.sh ####################################################################
+################################################################################
+
+LINKS_CREATED=0
+
+# link #####################################################################
+# Checks if symbolic links are already made or the related files are missing,
+# then creates symbolic links if missing.
+# Args:
+#   $1 - Path to link's desired destination.
+#   $2 - Path to link.
+link () {
+  local DESTINATION=$1;
+  local LINK=$2;
+  printf "🗺️ Checking for $LINK.\n";
+  if [ -L $LINK ] ; then
+    local EXISTING_DESTINATION=$(readlink "$LINK");
+    printf "🔎 Link found: $LINK → $EXISTING_DESTINATION\n";
+    if [ -e "$EXISTING_DESTINATION" ] ; then
+      if [ "$EXISTING_DESTINATION" == "$DESTINATION" ]; then
+        printf "👍 Correct link: $LINK → $EXISTING_DESTINATION\n";
+      else
+        printf "👎 Incorrect link: $EXISTING_DESTINATION ≠ $DESTINATION\n";
+        delete_file "$LINK" "Incorrect link";
+        create_link "$DESTINATION" "$LINK";
+      fi
+    else
+      printf "🪦 Broken link: $LINK\n";
+      delete_file "$LINK" "Broken link";
+      create_link "$DESTINATION" "$LINK";
+    fi
+  elif [ -e $LINK ] ; then
+    printf "📓 File found: $LINK\n";
+    rm $LINK;
+    if [ $? == 0 ]; then
+      printf "🗑️ File deleted: $LINK\n";
+    fi
+    create_link "$DESTINATION" "$LINK";
+    LINKS_CREATED=$((LINKS_CREATED+1))
+  else
+    printf "🔎 File not found: $LINK\n"
+    create_link "$DESTINATION" "$LINK";
+  fi    
+  printf "\n";
+}
+
+create_link () {
+  local DESTINATION=$1;
+  local LINK=$2;
+  ln -s $DESTINATION $LINK
+  if [ $? == 0 ]; then
+    printf "🔗 Link created: $LINK → $DESTINATION\n";
+    LINKS_CREATED=$((LINKS_CREATED+1))
+  fi
+}
+
+delete_file () {
+  local FILE=$1;
+  rm $FILE;
+  if [ $? == 0 ]; then 
+    if [ -n "$2" ]; then
+      local FILE_TYPE=$2;
+      printf "🗑️ $FILE_TYPE deleted: $FILE \n";
+    else
+      printf "🗑️ File deleted: $FILE \n";
+    fi
+  else
+    print_error "$FILE could not be deleted.";
+  fi
+}
+
+print_error () {
+  local MESSAGE=$1;
+  printf "❗ Error: $MESSAGE\n";
+}
+
+################################################################################
+
+# bash
+link ~/.dotfiles/dots/bashrc ~/.bashrc;
+link ~/.dotfiles/dots/bash_aliases ~/.bash_aliases;
+# code
+link ~/.dotfiles/dots/code.conf ~/.config/Code/User/settings.json;
+# espanso
+link ~/.dotfiles/dots/espanso-base.yml ~/.config/espanso/match/base.yml;
+# git
+link ~/.dotfiles/dots/git.conf ~/.gitconfig;
+# kitty
+link ~/.dotfiles/dots/kitty.conf ~/.config/kitty/kitty.conf;
+# mpd
+link ~/.dotfiles/dots/mpd.conf ~/.mpd/mpd.conf;
+# ncmpcpp
+link ~/.dotfiles/dots/ncmpcpp.conf ~/.ncmpcpp/config;
+# taskwarrior (task)
+link ~/.dotfiles/dots/taskrc ~/.taskrc;
+# vim
+link ~/.dotfiles/dots/vimrc ~/.vimrc;
+
+printf "🔗 $LINKS_CREATED links created.\n"

@@ -32,7 +32,6 @@ these to keep customizations and settings consistent across machines.
 * `code.conf` - [Visual Studio Code](Visual Studio Code) config file.
 * `espanso-base.yml` - Custom shortcuts for [Espanso](https://espanso.org/).
 * `git.conf` - [Git](https://en.wikipedia.org/wiki/Git) config file.
-* `keyb.yml` - [`keyb`](https://github.com/kencx/keyb) hotkey list.
 * `kitty.conf` - [`kitty`](https://sw.kovidgoyal.net/kitty/conf/) config file.
 * `mpd.conf` - [`mpd`](https://www.musicpd.org/) config file.
 * `ncmpcpp.conf` - [`ncmpcpp`](https://rybczak.net/ncmpcpp/) config file.
