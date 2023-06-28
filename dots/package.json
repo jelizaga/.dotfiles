@@ -176,6 +176,13 @@
           "zypper": {
             "id": "newsboat"
           }
+        },
+        {
+          "name": "pandoc",
+          "description": "document converter",
+          "apt": {
+            "id": "pandoc"
+          }
         }
       ] 
     },
