@@ -298,6 +298,17 @@
       ]
     },
     {
+        "group": "🖥️ Software Engineering / TUI",
+        "description": "develop programs to run in the terminal",
+        "packages": [
+          "name": "textual",
+          "description": "terminal application framework in Python",
+          "pip": {
+            "id": "textual[dev]"
+          }
+        ]
+    },
+    {
       "group": "🕸️ Software Engineering / Web",
       "description": "develop web sites for the AI botnet of the dead internet to enjoy",
       "packages": [
