@@ -1,2 +1,2 @@
-0 0 * * * /home/jelizaga/.dotfiles/scripts/doconvert md epub
-0 0 * * * strfile /home/jelizaga/.dotfiles/dots/quotes
+0 0 * * * doconvert $HOME/Writing md epub
+0 0 * * * strfile /home/jelizaga/.dotfiles/scripts/quotes

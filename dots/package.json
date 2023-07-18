@@ -148,6 +148,13 @@
           }
         },
         {
+          "name": "Logseq",
+          "description": "personal knowledge base",
+          "flatpak": {
+            "id": "com.logseq.Logseq"
+          }
+        },
+        {
           "name": "Tiddlywiki",
           "description": "non-linear personal wiki",
           "npm": {
