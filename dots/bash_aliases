@@ -9,6 +9,10 @@ alias t="taskwarrior-tui"
 alias v="vim"
 # buku
 alias b="buku"
+# pass
+alias p="pass"
+alias pg="pass generate"
+alias pi="pass insert -m"
 # date
 alias now="date +'%D %T'"
 alias nowd="date +'%D'"
