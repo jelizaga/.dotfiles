@@ -98,12 +98,4 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vimwiki/vimwiki'
 call plug#end()
-
-" Vimwiki ----------------------------------------------------------------------
-" List valid Vimwikis to handle/create:
-let g:vimwiki_list = [{'path': '~/.desk', 'path_html': '~/.desk/desk_html', 'syntax': 'markdown', 'ext': '.md'}, {'path': '~/.docfiles/', 'syntax': 'markdown', 'ext': '.md'}]
-" Ensure Vimwiki only sets the file type of Markdown files within a Vimwiki
-" directory:
-let g:vimwiki_global_ext = 0

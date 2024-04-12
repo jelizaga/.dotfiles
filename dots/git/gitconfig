@@ -2,4 +2,6 @@
 [user]
 # Please adapt and uncomment the following lines:
 name = Joel Elizaga
-email = joel@elizaga.org
+email = joel@elizaga.io
+[init]
+	defaultBranch = main

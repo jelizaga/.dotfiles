@@ -1,2 +1,1 @@
-0 0 * * * doconvert $HOME/Writing md epub
 0 0 * * * strfile /home/jelizaga/.dotfiles/scripts/quotes

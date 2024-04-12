@@ -5,16 +5,16 @@
       "description": "the essentials of a comfy & efficient system",
       "packages": [
         {
-          "name": "Vim",
+          "name": "Neovim",
           "description": "play the legendary text editing instrument like a cool kid",
           "apt": {
-            "id": "vim-gtk3"
+            "id": "neovim"
           },
           "dnf": {
-            "id": "vim-X11"
+            "id": "neovim"
           },
           "zypper": {
-            "id": "vim"
+            "id": "neovim"
           }
         },
         {

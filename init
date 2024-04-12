@@ -85,7 +85,7 @@ set_script_permissions () {
 
 run_cron () {
   print_running_script cron;
-  cron;
+  ./cron;
   printf "📓 crontab contents:\n"
   crontab -l;
 }

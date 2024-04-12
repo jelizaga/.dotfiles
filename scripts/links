@@ -4,7 +4,10 @@
 # links+.sh ####################################################################
 ################################################################################
 
-LINKS_CREATED=0
+LINKS_ATTEMPTED=0;
+LINKS_CREATED=0;
+LINKS_CORRECT=0;
+DIR_DOTS="$HOME/.dotfiles/dots";
 
 # link #####################################################################
 # Checks if symbolic links are already made or the related files are missing,
@@ -13,6 +16,7 @@ LINKS_CREATED=0
 #   $1 - Path to link's desired destination.
 #   $2 - Path to link.
 link () {
+  LINKS_ATTEMPTED=$((LINKS_ATTEMPTED+1));
   local DESTINATION=$1;
   local LINK=$2;
   printf "🗺️ Checking for $LINK.\n";
@@ -22,6 +26,7 @@ link () {
     if [ -e "$EXISTING_DESTINATION" ] ; then
       if [ "$EXISTING_DESTINATION" == "$DESTINATION" ]; then
         printf "👍 Correct link: $LINK → $EXISTING_DESTINATION\n";
+	LINKS_CORRECT=$((LINKS_CORRECT+1));
       else
         printf "👎 Incorrect link: $EXISTING_DESTINATION ≠ $DESTINATION\n";
         delete_file "$LINK" "Incorrect link";
@@ -80,23 +85,22 @@ print_error () {
 ################################################################################
 
 # bash
-link ~/.dotfiles/dots/bashrc ~/.bashrc;
-link ~/.dotfiles/dots/bash_aliases ~/.bash_aliases;
+link "$DIR_DOTS/bash/bashrc" "$HOME/.bashrc";
+link "$DIR_DOTS/bash/bash_aliases" "$HOME/.bash_aliases";
 # code
-link ~/.dotfiles/dots/code.conf ~/.config/Code/User/settings.json;
+link "$DIR_DOTS/code/settings.json" "$HOME/.config/Code/User/settings.json";
 # espanso
-link ~/.dotfiles/dots/espanso-base.yml ~/.config/espanso/match/base.yml;
+link "$DIR_DOTS/espanso/base.yml" "$HOME/.config/espanso/match/base.yml";
 # git
-link ~/.dotfiles/dots/git.conf ~/.gitconfig;
+link "$DIR_DOTS/git/gitconfig" "$HOME/.gitconfig";
 # kitty
-link ~/.dotfiles/dots/kitty.conf ~/.config/kitty/kitty.conf;
-# mpd
-link ~/.dotfiles/dots/mpd.conf ~/.mpd/mpd.conf;
-# ncmpcpp
-link ~/.dotfiles/dots/ncmpcpp.conf ~/.ncmpcpp/config;
+link "$DIR_DOTS/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf";
 # taskwarrior (task)
-link ~/.dotfiles/dots/taskrc ~/.taskrc;
+link "$DIR_DOTS/taskwarrior/taskrc" "$HOME/.taskrc";
 # vim
-link ~/.dotfiles/dots/vimrc ~/.vimrc;
+link "$DIR_DOTS/vim/vimrc" "$HOME/.vimrc";
+# nvim
+link "$DIR_DOTS/vim/vimrc" "$HOME/.config/nvim/init.vim";
 
-printf "🔗 $LINKS_CREATED links created.\n"
+printf "🔗 $LINKS_CREATED/$LINKS_ATTEMPTED links created.\n"
+printf "👍 $LINKS_CORRECT/$LINKS_ATTEMPTED links already correct.\n";
