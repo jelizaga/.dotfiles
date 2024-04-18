@@ -101,6 +101,8 @@ link "$DIR_DOTS/taskwarrior/taskrc" "$HOME/.taskrc";
 link "$DIR_DOTS/vim/vimrc" "$HOME/.vimrc";
 # nvim
 link "$DIR_DOTS/vim/vimrc" "$HOME/.config/nvim/init.vim";
+# tmux
+link "$DIR_DOTS/tmux/tmux.conf" "$HOME/.tmux.conf";
 
 printf "🔗 $LINKS_CREATED/$LINKS_ATTEMPTED links created.\n"
 printf "👍 $LINKS_CORRECT/$LINKS_ATTEMPTED links already correct.\n";
