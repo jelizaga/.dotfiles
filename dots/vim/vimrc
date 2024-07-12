@@ -74,28 +74,3 @@ let mapleader = ","
 nnoremap <F10> "=strftime("%D")<CR>P
 nnoremap <F11> "=strftime("%T")<CR>P
 nnoremap <F12> "=strftime("%D %T")<CR>P
-
-" Plugins ----------------------------------------------------------------------
-
-" Install vim-plug:
-let data_dir = has('nvim?') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs http://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Use vim-plug to install plugins:
-call plug#begin(has('nvim?') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-Plug 'chrisbra/unicode.vim'
-Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-titlecase'
-Plug 'fladson/vim-kitty'
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'preservim/nerdtree'
-Plug 'ron89/thesaurus_query.vim'
-Plug 'terrastruct/d2-vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/ReplaceWithRegister'
-call plug#end()
