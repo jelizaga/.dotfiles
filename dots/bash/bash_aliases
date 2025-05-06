@@ -1,16 +1,10 @@
 # taskwarrior & timewarrior
-alias taw="task"
-alias tiw="timew"
 alias t="taskwarrior-tui"
 # vim
 alias v="nvim"
 # buku
 alias b="buku"
 # date
-alias now="date +'%D %T'"
-alias nowd="date +'%D'"
-alias nowt="date +'%T'"
-# pass
-alias p="pass"
+alias d="date -Iseconds"
 # system
-alias u="sudo apt update; sudo apt upgrade; flatpak update"
+alias u="sudo apt update -y; sudo apt upgrade -y; flatpak update"
