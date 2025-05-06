@@ -1,0 +1,70 @@
+# [Created by task 2.6.1 6/23/2022 11:17:24]
+# Taskwarrior program configuration file.
+# For more documentation, see https://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# You can also reference environment variables:
+#   variable=$HOME/task
+#   variable=$VALUE
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files ########################################################################
+data.location=$HOME/.task
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color Theme ##################################################################
+#include light-16.theme
+#include light-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+# Date & Time Format ###########################################################
+dateFormat=d-m-y
+
+# News #########################################################################
+news.version=2.6.0
+context.career.read=+career or +freelance or +ga or +uw
+context.5_charms_travel.read=+5_charms_travel
+context.5_charms_travel.write=+5_charms_travel
+context.cedar_st.read=+cedar_st
+context.cedar_st.write=+cedar_st
+context.dubcast_with_dubside.read=+dubcast_with_dubside
+context.dubcast_with_dubside.write=+dubcast_with_dubside
+context.environment.read=+cedar_st or +harvest_ln or +whitman_st
+context.exercise.read=+exercise
+context.exercise.write=+exercise
+context.exploration.read=+exploration
+context.exploration.write=+exploration
+context.health.read=+health or +exercise
+context.freelance.read=+freelance or +dubcast_with_dubside or +5_charms_travel or +xee_group or +invoice
+context.harvest_ln.read=+harvest_ln
+context.harvest_ln.write=+harvest_ln
+context.manifold.read=+manifold or +health or +exercise
+context.labor.read=+labor or +freelance or +studies or +career
+context.studies.read=+studies or +gt or +uw or +studies or +learn
+context.school.read=+gt or +uw
+context.whitman_st.read=+whitman_st
+context.whitman_st.write=+whitman_st
+context.xee_group.read=+xee_group
+context.xee_group.write=+xee_group

@@ -1,0 +1,664 @@
+{
+  "groups": [
+    {
+      "group": "⚙️ Core System",
+      "description": "the essentials of a comfy & efficient system",
+      "packages": [
+        {
+          "name": "Neovim",
+          "description": "play the legendary text editing instrument like a cool kid",
+          "apt": {
+            "id": "neovim"
+          },
+          "dnf": {
+            "id": "neovim"
+          },
+          "zypper": {
+            "id": "neovim"
+          }
+        },
+        {
+          "name": "kitty",
+          "description": "feature-rich GPU-based terminal emulator",
+          "apt": {
+            "id": "kitty"
+          },
+          "dnf": {
+            "id": "kitty"
+          },
+          "zypper": {
+            "id": "kitty"
+          }
+        },
+        {
+          "name": "nnn",
+          "description": "terminal file manager",
+          "apt": {
+            "id": "nnn"
+          },
+          "dnf": {
+            "id": "nnn"
+          },
+          "zypper": {
+            "id": "nnn"
+          }
+        },
+        {
+          "name": "Syncthing",
+          "description": "synchronize files across computers",
+          "apt": {
+            "id": "syncthing"
+          },
+          "dnf": {
+            "id": "syncthing"
+          },
+          "zypper": {
+            "id": "syncthing"
+          }
+        },
+        {
+          "name": "Sensors",
+          "description": "hardware health monitoring—make sure your stuff's not too hot",
+          "apt": {
+            "id": "lm-sensors"
+          },
+          "dnf": {
+            "id": "lm_sensors"
+          },
+          "zypper": {
+            "id": "sensors"
+          }
+        },
+        {
+          "name": "OBS Studio",
+          "description": "screen capturing, recording, and streaming",
+          "prefer": "flatpak",
+          "flatpak": {
+            "id": "com.obsproject.Studio"
+          },
+          "apt": {
+            "id": "obs-studio"
+          }
+        },
+        {
+          "name": "ttyd",
+          "description": "share your terminal over the web",
+          "command": "wget -P ~/Downloads https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64; mv ~/Downloads/ttyd.x86_64 ~/.local/bin/ttyd; chmod +x ~/.local/bin/ttyd;"
+        }
+      ]
+    },
+    {
+      "group": "⏰ Productivity",
+      "description": "get stuff done",
+      "packages": [
+        {
+          "name": "Taskwarrior",
+          "description": "stay on-task with this CLI todo list",
+          "apt": {
+            "id": "taskwarrior"
+          },
+          "dnf": {
+            "id": "task"
+          },
+          "zypper": {
+            "id": "taskwarrior"
+          }
+        },
+        {
+          "name": "Espanso",
+          "description": "text expansion tool",
+          "Pop!_OS": {
+            "command": "wget -P ~/Downloads https://github.com/federico-terzi/espanso/releases/download/v2.1.8/espanso-debian-x11-amd64.deb; sudo apt install ~/Downloads/espanso-debian-x11-amd64.deb; espanso service register; espanso start; rm ~/Downloads/espanso-debian-x11-amd64.deb;"
+          },
+          "Ubuntu": {
+            "command": "sudo snap install espanso --classic --channel=latest/edge; espanso service register; espanso start"
+          }
+        }
+      ] 
+    },
+    {
+      "group": "🧠 Knowledge Work",
+      "description": "keep your wits about you",
+      "packages": [
+        {
+          "name": "Anki",
+          "description": "spaced-repetition flash cards for knowledge expansion",
+          "prefer": "flatpak",
+          "apt": {
+            "id": "anki"
+          },
+          "dnf": {
+            "id": "anki"
+          },
+          "flatpak": {
+            "id": "net.ankiweb.Anki"
+          }
+        },
+        {
+          "name": "Calibre",
+          "description": "universal e-book suite",
+          "apt": {
+            "id": "calibre"
+          },
+          "dnf": {
+            "id": "calibre"
+          },
+          "zypper": {
+            "id": "calibre"
+          }
+        },
+        {
+          "name": "buku",
+          "description": "collect and manage bookmarks via terminal",
+          "apt": {
+            "id": "buku"
+          },
+          "dnf": {
+            "id": "buku"
+          }
+        },
+        {
+          "name": "Newsboat",
+          "description": "terminal RSS reader",
+          "apt": {
+            "id": "newsboat"
+          },
+          "dnf": {
+            "id": "newsboat"
+          },
+          "zypper": {
+            "id": "newsboat"
+          }
+        },
+        {
+          "name": "pandoc",
+          "description": "document converter",
+          "apt": {
+            "id": "pandoc"
+          }
+        }
+      ] 
+    },
+    {
+      "group": "💬 Communications",
+      "description": "stay connected",
+      "packages": [
+        {
+          "name": "Zoom",
+          "description": "ubiquitous conferencing software that defined a generation",
+          "prefer": "flatpak",
+          "flatpak": {
+            "id": "us.zoom.Zoom"
+          }
+        },
+        {
+          "name": "Weechat",
+          "description": "multi-protocol terminal chat client",
+          "apt": {
+            "id": "weechat"
+          },
+          "dnf": {
+            "id": "weechat"
+          },
+          "zypper": {
+            "id": "weechat"
+          }
+        },
+        {
+          "name": "NeoMutt",
+          "description": "check your mail from the terminal, you nerd",
+          "apt": {
+            "id": "neomutt"
+          },
+          "dnf": {
+            "id": "neomutt"
+          },
+          "zypper": {
+            "id": "neomutt"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🔒 Security",
+      "description": "stay safe",
+      "packages": [
+        {
+          "name": "Mullvad VPN",
+          "description": "virtual private network",
+          "command": "wget -P ~/Downloads https://mullvad.net/en/download/app/deb/latest; sudo dpkg -i ~/Downloads/MullvadVPN-2023.3_amd64.deb; rm ~/Downloads/MullvadVPN-2023.3_amd64.deb;",
+          "Fedora Linux": {
+            "command": "wget -P ~/Downloads https://mullvad.net/en/download/app/rpm/latest; sudo dnf install ~/Downloads/MullvadVPN-2023.3_x86_64.rpm; rm ~/Downloads/MullvadVPN-2023.3_x86_64.rpm"
+          }
+        },
+        {
+          "name": "pass",
+          "description": "the standard Unix password manager",
+          "apt": {
+            "id": "pass"
+          },
+          "dnf": {
+            "id": "pass"
+          }
+        }, 
+        {
+          "name": "Tomb",
+          "description": "simple CLI file encryption",
+          "apt": {
+            "id": "tomb"
+          }
+        }
+      ]
+    },
+    {
+      "group": "💻 Software Engineering / Core",
+      "description": "crucial software engineering tools",
+      "packages": [
+        {
+          "name": "Git",
+          "description": "distributed version control",
+          "apt": {
+            "id": "git"
+          },
+          "dnf": {
+            "id": "git"
+          }
+        },
+        {
+          "name": "Visual Studio Code",
+          "description": "Microsoft's open-source IDE",
+          "apt": {
+            "id": "code"
+          }
+        },
+        {
+          "name": "Eclipse",
+          "description": "Java development IDE",
+          "flatpak": {
+            "id": "org.eclipse.Java"
+          }
+        },
+        {
+          "name": "VirtualBox",
+          "description": "x86 virtualization",
+          "Pop!_OS": {
+            "command": "wget -P ~/Downloads https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb; sudo dpkg -i ~/Downloads/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb; rm ~/Downloads/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb;"
+          },
+          "Fedora Linux 37 (Workstation Edition)": {
+            "command": "wget -P ~/Downloads https://download.virtualbox.org/virtualbox/7.0.6/VirtualBox-7.0-7.0.6_155176_fedora36-1.x86_64.rpm; sudo dnf install ~/Downloads/VirtualBox-7.0-7.0.6_155176_fedora36-1.x86_64.rpm; rm ~/Downloads/VirtualBox-7.0-7.0.6_155176_fedora36-1.x86_64.rpm;"
+          }
+        }
+      ]
+    },
+    {
+        "group": "🖥️ Software Engineering / TUI",
+        "description": "develop programs to run in the terminal",
+        "packages": [
+          "name": "textual",
+          "description": "terminal application framework in Python",
+          "pip": {
+            "id": "textual[dev]"
+          }
+        ]
+    },
+    {
+      "group": "🕸️ Software Engineering / Web",
+      "description": "develop web sites for the AI botnet of the dead internet to enjoy",
+      "packages": [
+        "name": "nvm",
+        "description": "Node.js version manager",
+        "command": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash"
+      ]
+    },
+    {
+      "group": "📱 Software Engineering / Mobile",
+      "description": "develop software for pocket rectangles"
+    },
+    {
+      "group": "👾 Software Engineering / Game",
+      "description": "develop games that could make people feel okay",
+      "packages": [
+        {
+          "name": "Godot Engine",
+          "description": "cross-platform FOSS game engine",
+          "flatpak": {
+            "id": "org.godotengine.Godot"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🤖 Artificial Intelligence",
+      "description": "fade into the digitized human gestalt"
+    },
+    {
+      "group": "📊 Data",
+      "description": "wield the power of data to make cool tools",
+      "packages": [
+        {
+          "name": "NumPy",
+          "description": "scientific computing for Python",
+          "pip": {
+            "id": "numpy"
+          }
+        },
+        {
+          "name": "VisiData",
+          "description": "explore and arrange tabular data in the terminal",
+          "pip": {
+            "id": "visidata"
+          }
+        },
+        {
+          "name": "jqp",
+          "description": "jq TUI playground",
+          "command": "wget -P ~/Downloads https://github.com/noahgorstein/jqp/releases/download/v0.4.0/jqp_0.4.0_Linux_x86_64.tar.gz; mkdir ~/Downloads/jqp; tar -xzvf ~/Downloads/jqp_0.4.0_Linux_x86_64.tar.gz -C ~/Downloads/jqp; mv ~/Downloads/jqp/jq-linux64 ~/.local/.bin/jqp;"
+        }
+      ]
+    },
+    {
+      "group": "🖲️ Desktop Environment / GNOME",
+      "description": "packages specific to GNOME",
+      "packages": [
+        {
+          "name": "GNOME Disks",
+          "description": "manage and configure drives and media",
+          "apt": {
+            "id": "gnome-disk-utility"
+          },
+          "dnf": {
+            "id": "gnome-disk-utility"
+          },
+          "zypper": {
+            "id": "gnome-disk-utility"
+          }
+        },
+        {
+          "name": "GNOME Tweaks",
+          "description": "circumnavigate GNOME's intense convictions and finally customize the thing",
+          "apt": {
+            "id": "gnome-tweaks"
+          },
+          "dnf": {
+            "id": "gnome-tweaks"
+          },
+          "zypper": {
+            "id": "gnome-tweaks"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🎨 Graphics / Fabrication",
+      "description": "composite, edit, and create images",
+      "packages": [
+        {
+          "name": "Blender",
+          "description": "legendary FOSS 3D computer graphics suite",
+          "prefer": "flatpak",
+          "apt": {
+            "id": "blender"
+          },
+          "dnf": {
+            "id": "blender"
+          },
+          "flatpak": {
+            "id": "org.blender.Blender"
+          },
+          "zypper": {
+            "id": "blender"
+          }
+        },
+        {
+          "name": "GIMP",
+          "description": "obligatory GNU Image Manipulation Program",
+          "apt": {
+            "id": "gimp"
+          },
+          "dnf": {
+            "id": "gimp"
+          },
+          "zypper": {
+            "id": "gimp"
+          }
+        },
+        {
+          "name": "Krita",
+          "description": "digital painting suite",
+          "prefer": "flatpak",
+          "apt": {
+            "id": "krita"
+          },
+          "dnf": {
+            "id": "krita"
+          },
+          "flatpak": {
+            "id": "org.kde.krita"
+          }
+        },
+        {
+          "name": "Inkscape",
+          "description": "vector-based drawing program that might be less frustrating than Illustrator",
+          "prefer": "flatpak",
+          "apt": {
+            "id": "inkscape"
+          },
+          "dnf": {
+            "id": "inkscape"
+          },
+          "flatpak": {
+            "id": "org.inkscape.Inkscape"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🖼️ Graphics / Appreciation",
+      "description": "appreciate images"
+    },
+    {
+      "group": "🎥 Video / Fabrication",
+      "description": "craft motion pictures",
+      "packages": [
+        {
+          "name": "kdenlive",
+          "description": "FOSS non-linear video editor",
+          "apt": {
+            "id": "kdenlive"
+          },
+          "dnf": {
+            "id": "kdenlive"
+          },
+          "zypper": {
+            "id": "kdenlive"
+          }
+        },
+        {
+          "name": "VHS",
+          "description": "write terminal recordings as code",
+          "Pop!_OS": "sudo mkdir -p /etc/apt/keyrings; curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg; echo 'deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *' | sudo tee /etc/apt/sources.list.d/charm.list; sudo apt update; sudo apt install vhs;"
+        },
+        {
+          "name": "asciinema",
+          "description": "terminal session recorder",
+          "pip": "asciinema"
+        }
+      ]
+    },
+    {
+      "group": "📼 Video / Appreciation",
+      "description": "view videos",
+      "packages": [
+        {
+          "name": "ffmpeg",
+          "apt": {
+            "id": "ffmpeg"
+          },
+          "dnf": {
+            "id": "ffmpeg-free"
+          }
+        },
+        {
+          "name": "VLC",
+          "description": "only media player you'll ever need",
+          "apt": {
+            "id": "vlc"
+          },
+          "dnf": {
+            "id": "vlc"
+          },
+          "zypper": {
+            "id": "vlc"
+          }
+        },
+        {
+          "name": "youtube-dlp",
+          "description": "download videos on the web from your terminal",
+          "apt": {
+            "id": "yt-dlp"
+          },
+          "dnf": {
+            "id": "yt-dlp"
+          },
+          "zypper": {
+            "id": "yt-dlp"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🎹 Audio / Fabrication",
+      "description": "compose music and sound"
+    },
+    {
+      "group": "🎸 Audio / Appreciation",
+      "description": "enjoy sonic experiences",
+      "packages": [
+        {
+          "name": "Spotify",
+          "description": "juggernaut audio streaming service",
+          "flatpak": {
+            "id": "com.spotify.Client" 
+          },
+          "snap": {
+            "id": "spotify"
+          }
+        },
+        {
+          "name": "ncmpcpp",
+          "description": "CLI music player",
+          "apt": {
+            "id": "ncmpcpp"
+          },
+          "dnf": {
+            "id": "ncmpcpp"
+          },
+          "zypper": {
+            "id": "ncmpcpp"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🕹️ Video Games",
+      "description": "challenging software to keep you occupied & amused",
+      "packages": [
+        {
+          "name": "Steam",
+          "description": "brilliantly monopolistic game storefront & database",
+          "flatpak": {
+            "id": "com.valvesoftware.Steam"
+          }
+        },
+        {
+          "name": "higan",
+          "description": "cycle-accurate multi-system gaming emulator (RIP Near)",
+          "apt": {
+            "id": "higan"
+          }
+        },
+        {
+          "name": "Mupen64Plus",
+          "description": "Nintendo 64 emulator",
+          "apt": {
+            "id": "mupen64plus-qt"
+          },
+          "dnf": {
+            "id": "mupen64plus-qt"
+          },
+          "zypper": {
+            "id": "mupen64plus-ui-console"
+          }
+        }
+      ]
+    },
+    {
+      "group": "🐮 Goofy",
+      "description": "very important superfluous extras",
+      "packages": [
+        {
+          "name": "cmatrix",
+          "description": "cascading text in your terminal, just like the Matrix",
+          "apt": {
+            "id": "cmatrix"
+          },
+          "dnf": {
+            "id": "cmatrix"
+          }
+        },
+        {
+          "name": "figlet",
+          "description": "generate ASCII text on the fly in all sorts of fun fonts",
+          "apt": {
+            "id": "figlet"
+          },
+          "dnf": {
+            "id": "figlet"
+          },
+          "zypper": {
+            "id": "figlet"
+          }
+        },
+        {
+          "name": "cowsay",
+          "description": "cow that speaks wisdom",
+          "apt": {
+            "id": "cowsay"
+          },
+          "dnf": {
+            "id": "cowsay"
+          },
+          "zypper": {
+            "id": "cowsay"
+          }
+        },
+        {
+          "name": "fortune",
+          "description": "random quote generator—try it with cowsay!",
+          "apt": {
+            "id": "fortune"
+          },
+          "dnf": {
+            "id": "fortune"
+          },
+          "zypper": {
+            "id": "fortune"
+          }
+        },
+        {
+          "name": "nsnake",
+          "description": "classic Nokia-style Snake in your terminal",
+          "apt": {
+            "id": "nsnake"
+          },
+          "dnf": {
+            "id": "nsnake"
+          },
+          "zypper": {
+            "id": "nsnake"
+          }
+        }
+      ]
+    }
+  ]
+}

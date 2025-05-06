@@ -10,3 +10,7 @@ alias b="buku"
 alias now="date +'%D %T'"
 alias nowd="date +'%D'"
 alias nowt="date +'%T'"
+# pass
+alias p="pass"
+# system
+alias u="sudo apt update; sudo apt upgrade; flatpak update"
