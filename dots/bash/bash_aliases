@@ -8,3 +8,13 @@ alias b="buku"
 alias d="date -Iseconds"
 # system
 alias u="sudo apt update -y; sudo apt upgrade -y; flatpak update"
+# journal
+alias j="nvim $HOME/.j/j.md"
+# nnn
+alias n="nnn"
+# neomutt
+alias m="neomutt"
+# weechat
+alias w="weechat"
+# newsboat
+alias r="newsboat"
