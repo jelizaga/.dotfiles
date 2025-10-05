@@ -103,6 +103,10 @@ link "$DIR_DOTS/vim/vimrc" "$HOME/.vimrc";
 link "$DIR_DOTS/vim/vimrc" "$HOME/.config/nvim/init.vim";
 # tmux
 link "$DIR_DOTS/tmux/tmux.conf" "$HOME/.tmux.conf";
+# hyprland
+link "$DIR_DOTS/hyprland/hyprland.conf" "$HOME/.config/hypr/hyprland.conf";
+# dunst
+link "$DIR_DOTS/dunst/dunstrc" "$HOME/.config/dunst/dunstrc";
 
 printf "🔗 $LINKS_CREATED/$LINKS_ATTEMPTED links created.\n"
 printf "👍 $LINKS_CORRECT/$LINKS_ATTEMPTED links already correct.\n";

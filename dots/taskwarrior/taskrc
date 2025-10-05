@@ -29,7 +29,7 @@ data.location=$HOME/.task
 #include dark-16.theme
 #include dark-256.theme
 #include dark-red-256.theme
-include dark-green-256.theme
+#include dark-green-256.theme
 #include dark-blue-256.theme
 #include dark-violets-256.theme
 #include dark-yellow-green.theme
@@ -44,3 +44,7 @@ dateFormat=d-m-y
 
 # News #########################################################################
 news.version=2.6.0
+context.study.read=+study
+context.study.write=+study
+context.freelance.read=+freelance +5_charms_travel
+context.freelance.write=+freelance +5_charms_travel
