@@ -97,16 +97,17 @@ link "$DIR_DOTS/git/gitconfig" "$HOME/.gitconfig";
 link "$DIR_DOTS/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf";
 # taskwarrior (task)
 link "$DIR_DOTS/taskwarrior/taskrc" "$HOME/.taskrc";
-# vim
-link "$DIR_DOTS/vim/vimrc" "$HOME/.vimrc";
 # nvim
-link "$DIR_DOTS/vim/vimrc" "$HOME/.config/nvim/init.vim";
+link "$DIR_DOTS/neovim/init.lua" "$HOME/.config/nvim/init.lua";
 # tmux
 link "$DIR_DOTS/tmux/tmux.conf" "$HOME/.tmux.conf";
 # hyprland
 link "$DIR_DOTS/hyprland/hyprland.conf" "$HOME/.config/hypr/hyprland.conf";
 # dunst
 link "$DIR_DOTS/dunst/dunstrc" "$HOME/.config/dunst/dunstrc";
+# waybar
+link "$DIR_DOTS/waybar/style.css" "$HOME/.config/waybar/style.css";
+link "$DIR_DOTS/waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc";
 
 printf "🔗 $LINKS_CREATED/$LINKS_ATTEMPTED links created.\n"
 printf "👍 $LINKS_CORRECT/$LINKS_ATTEMPTED links already correct.\n";
