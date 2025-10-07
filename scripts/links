@@ -108,6 +108,8 @@ link "$DIR_DOTS/dunst/dunstrc" "$HOME/.config/dunst/dunstrc";
 # waybar
 link "$DIR_DOTS/waybar/style.css" "$HOME/.config/waybar/style.css";
 link "$DIR_DOTS/waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc";
+# wofi
+link "$DIR_DOTS/wofi/style.css" "$HOME/.config/wofi/style.css";
 
 printf "🔗 $LINKS_CREATED/$LINKS_ATTEMPTED links created.\n"
 printf "👍 $LINKS_CORRECT/$LINKS_ATTEMPTED links already correct.\n";
