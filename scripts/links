@@ -100,7 +100,7 @@ link "$DIR_DOTS/taskwarrior/taskrc" "$HOME/.taskrc";
 # vim
 link "$DIR_DOTS/vim/vimrc" "$HOME/.vimrc";
 # nvim
-link "$DIR_DOTS/vim/vimrc" "$HOME/.config/nvim/init.vim";
+link "$DIR_DOTS/nvim/init.lua" "$HOME/.config/nvim/init.lua";
 # tmux
 link "$DIR_DOTS/tmux/tmux.conf" "$HOME/.tmux.conf";
 
